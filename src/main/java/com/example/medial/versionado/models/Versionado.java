@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "solveit.version_control")
+@Table(name = "version_control")
 public class Versionado {
 
     private Long id;

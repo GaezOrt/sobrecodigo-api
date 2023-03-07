@@ -11,7 +11,7 @@ import java.util.List;
 public interface VersionadoRepository extends CrudRepository<Versionado, Long> {
 
 
-    @Query(value = "select * from solveit.version_control WHERE [solveit].[version_control].version_number = ?1 and [solveit].[version_control].user_agent = ?2",
+    @Query(value = "select * from version_control WHERE [dbo].[version_control].version_number = ?1 and [dbo].[version_control].user_agent = ?2",
             nativeQuery = true)
     Versionado findByVersionAndOs(String version, String os);
 }
