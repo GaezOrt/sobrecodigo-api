@@ -56,4 +56,9 @@ public class UserController {
         return userBusiness.userInfo();
     }
 
+    @RequestMapping(value = "/info/userDetail", method = RequestMethod.GET)
+    public @ResponseBody
+    UserCreateFirstStepDto userCreateFirstStepDto() {
+        return userBusiness.getInfoFirstStep();
+    }
 }
