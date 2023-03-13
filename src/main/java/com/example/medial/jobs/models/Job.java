@@ -14,6 +14,7 @@ public class Job {
 
     @Column(name = "position")
     private String position;
+
     @Column(name = "description")
     private String description;
 
@@ -31,6 +32,7 @@ public class Job {
 
     @Column(name = "requirement")
     private String requirement;
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -43,15 +45,27 @@ public class Job {
         this.description = description;
     }
 
-    public void setPosition(String position) {this.position = position;}
+    public void setPosition(String position) {
+        this.position = position;
+    }
 
-    public void setModality_work(String modality_work) {this.modality_work = modality_work;}
+    public void setModality_work(String modality_work) {
+        this.modality_work = modality_work;
+    }
 
-    public void setCurrency(String currency) {this.currency = currency;}
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
 
-    public void setSalary(Double salary) {this.salary = salary;}
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
 
-    public void setRelocation(String relocation) {this.relocation = relocation;}
+    public void setRelocation(String relocation) {
+        this.relocation = relocation;
+    }
 
-    public void setRequirement(String requirement) {this.requirement = requirement;}
+    public void setRequirement(String requirement) {
+        this.requirement = requirement;
+    }
 }
