@@ -1,7 +1,7 @@
 package com.example.medial.jobs;
 
 import com.example.medial.enums.Api;
-import com.example.medial.jobs.business.ProjectBusiness;
+import com.example.medial.jobs.business.JobsBusiness;
 import com.example.medial.jobs.models.Job;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,21 +9,21 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("newUserController")
-@RequestMapping("/1.0/projects")
+@RestController("newJobsController")
+@RequestMapping("/1.0/jobs")
 @CrossOrigin(origins = Api.API)
 @Controller
-public class ProjectController {
+public class JobsController {
 
     @Autowired
-    private ProjectBusiness projectBusiness;
+    private JobsBusiness jobsBusiness;
 
-    //Get recent projects
-    @RequestMapping(value = "/recent-projects", method = RequestMethod.GET)
+    //Get recent jobs
+    @RequestMapping(value = "/recent-jobs", method = RequestMethod.GET)
     public @ResponseBody
-    List<Job> userInfo() {
+    List<Job> getRecentJobs() {
 
-        return projectBusiness.getMostRecentProjects();
+        return jobsBusiness.getRecentJobs();
     }
 
 
