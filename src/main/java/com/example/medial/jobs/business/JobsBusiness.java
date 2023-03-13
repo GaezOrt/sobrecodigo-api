@@ -13,7 +13,10 @@ public class JobsBusiness {
     @Autowired
     private JobsRepository jobsRepository;
 
-    public List<Job> recentJobs(){
-        return jobsRepository.findAll();
+
+    public List<Job> getRecentJobs(){
+        List<Job> jobs= jobsRepository.findAll();
+
+        return jobs;
     }
 }
