@@ -13,15 +13,15 @@ public class Job {
     private String name;
 
     @Column(name = "position")
-    private String position;
+    private Long positionId;
     @Column(name = "description")
     private String description;
 
     @Column(name = "modality_work")
-    private String modalityWork;
+    private Long modalityWorkId;
 
     @Column(name = "currency")
-    private String currency;
+    private Long currencyId;
 
     @Column(name = "salary")
     private Double salary;
@@ -43,15 +43,63 @@ public class Job {
         this.description = description;
     }
 
-    public void setPosition(String position) {this.position = position;}
+    public void setPosition(Long position) {this.positionId = position;}
 
-    public void setModality_work(String modality_work) {this.modalityWork = modality_work;}
+    public void setModality_work(Long modality_work) {this.modalityWorkId = modality_work;}
 
-    public void setCurrency(String currency) {this.currency = currency;}
+    public void setCurrency(Long currency) {this.currencyId = currency;}
 
     public void setSalary(Double salary) {this.salary = salary;}
 
     public void setRelocation(Boolean relocation) {this.relocation = relocation;}
 
     public void setRequirement(String requirement) {this.requirement = requirement;}
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Long getPositionId() {
+        return positionId;
+    }
+
+    public void setPositionId(Long positionId) {
+        this.positionId = positionId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Long getModalityWorkId() {
+        return modalityWorkId;
+    }
+
+    public void setModalityWorkId(Long modalityWorkId) {
+        this.modalityWorkId = modalityWorkId;
+    }
+
+    public Long getCurrencyId() {
+        return currencyId;
+    }
+
+    public void setCurrencyId(Long currencyId) {
+        this.currencyId = currencyId;
+    }
+
+    public Double getSalary() {
+        return salary;
+    }
+
+    public Boolean getRelocation() {
+        return relocation;
+    }
+
+    public String getRequirement() {
+        return requirement;
+    }
 }

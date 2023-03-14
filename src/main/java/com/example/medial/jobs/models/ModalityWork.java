@@ -3,15 +3,15 @@ package com.example.medial.jobs.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "positions")
-public class JobPosition {
+@Table(name = "modality_work")
+public class ModalityWork {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "position")
-    private String position;
+    @Column(name = "modality")
+    private String modality;
 
     public Long getId() {
         return id;
@@ -21,11 +21,11 @@ public class JobPosition {
         this.id = id;
     }
 
-    public String getPosition() {
-        return position;
+    public String getModality() {
+        return modality;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setModality(String modality) {
+        this.modality = modality;
     }
 }
