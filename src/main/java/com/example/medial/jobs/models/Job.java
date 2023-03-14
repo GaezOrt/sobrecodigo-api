@@ -12,16 +12,19 @@ public class Job {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "position")
-    private String position;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "position")
+    private JobPosition position;
     @Column(name = "description")
     private String description;
 
-    @Column(name = "modality_work")
-    private String modalityWork;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "modality_work")
+    private ModalityWork modalityWork;
 
-    @Column(name = "currency")
-    private String currency;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "currency")
+    private Currency currency;
 
     @Column(name = "salary")
     private Double salary;
@@ -84,15 +87,63 @@ public class Job {
         this.description = description;
     }
 
-    public void setPosition(String position) {this.position = position;}
+    public void setPosition(JobPosition position) {this.position = position;}
 
-    public void setModality_work(String modality_work) {this.modalityWork = modality_work;}
+    public void setModality_work(ModalityWork modality_work) {this.modalityWork = modality_work;}
 
-    public void setCurrency(String currency) {this.currency = currency;}
+    public void setCurrency(Currency currency) {this.currency = currency;}
 
     public void setSalary(Double salary) {this.salary = salary;}
 
     public void setRelocation(Boolean relocation) {this.relocation = relocation;}
 
     public void setRequirement(String requirement) {this.requirement = requirement;}
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public JobPosition getPosition() {
+        return position;
+    }
+
+    public void setPosition(JobPosition position) {
+        this.position = position;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public ModalityWork getModalityWork() {
+        return modalityWork;
+    }
+
+    public void setModalityWork(ModalityWork modalityWork) {
+        this.modalityWork = modalityWork;
+    }
+
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
+    }
+
+    public Double getSalary() {
+        return salary;
+    }
+
+    public Boolean getRelocation() {
+        return relocation;
+    }
+
+    public String getRequirement() {
+        return requirement;
+    }
 }
