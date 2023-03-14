@@ -12,16 +12,19 @@ public class Job {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "position")
-    private Long positionId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "position")
+    private JobPosition position;
     @Column(name = "description")
     private String description;
 
-    @Column(name = "modality_work")
-    private Long modalityWorkId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "modality_work")
+    private ModalityWork modalityWork;
 
-    @Column(name = "currency")
-    private Long currencyId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "currency")
+    private Currency currency;
 
     @Column(name = "salary")
     private Double salary;
@@ -43,11 +46,11 @@ public class Job {
         this.description = description;
     }
 
-    public void setPosition(Long position) {this.positionId = position;}
+    public void setPosition(JobPosition position) {this.position = position;}
 
-    public void setModality_work(Long modality_work) {this.modalityWorkId = modality_work;}
+    public void setModality_work(ModalityWork modality_work) {this.modalityWork = modality_work;}
 
-    public void setCurrency(Long currency) {this.currencyId = currency;}
+    public void setCurrency(Currency currency) {this.currency = currency;}
 
     public void setSalary(Double salary) {this.salary = salary;}
 
@@ -63,32 +66,32 @@ public class Job {
         return name;
     }
 
-    public Long getPositionId() {
-        return positionId;
+    public JobPosition getPosition() {
+        return position;
     }
 
-    public void setPositionId(Long positionId) {
-        this.positionId = positionId;
+    public void setPosition(JobPosition position) {
+        this.position = position;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public Long getModalityWorkId() {
-        return modalityWorkId;
+    public ModalityWork getModalityWork() {
+        return modalityWork;
     }
 
-    public void setModalityWorkId(Long modalityWorkId) {
-        this.modalityWorkId = modalityWorkId;
+    public void setModalityWork(ModalityWork modalityWork) {
+        this.modalityWork = modalityWork;
     }
 
-    public Long getCurrencyId() {
-        return currencyId;
+    public Currency getCurrency() {
+        return currency;
     }
 
-    public void setCurrencyId(Long currencyId) {
-        this.currencyId = currencyId;
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
     }
 
     public Double getSalary() {
