@@ -23,7 +23,7 @@ public class JobsController
     //Get recent jobs
     @RequestMapping(value = "/new-jobs", method = RequestMethod.GET)
     public @ResponseBody
-    List<JobDto> userInfo() {
+    List<JobDto> getJobs() {
 
         return jobsBusiness.getRecentJobs();
     }

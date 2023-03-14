@@ -25,6 +25,8 @@ public class JobsBusiness {
             jobDto.setId(job.getId());
             jobDto.setDescription(job.getDescription());
             jobDto.setName(job.getName());
+            jobDto.setPosition(job.getPosition());
+
             jobDtos.add(jobDto);
 
         }
