@@ -69,7 +69,7 @@ public class Job {
     public JobPosition getPosition() {
         return position;
     }
-    
+
     public String getDescription() {
         return description;
     }
