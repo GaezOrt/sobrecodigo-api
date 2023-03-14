@@ -35,45 +35,6 @@ public class Job {
     @Column(name = "requirement")
     private String requirement;
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getModalityWork() {
-        return modalityWork;
-    }
-
-    public void setModalityWork(String modalityWork) {
-        this.modalityWork = modalityWork;
-    }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public Double getSalary() {
-        return salary;
-    }
-
-    public Boolean getRelocation() {
-        return relocation;
-    }
-
-    public String getRequirement() {
-        return requirement;
-    }
 
     public void setId(Long id) {
         this.id = id;
@@ -87,11 +48,6 @@ public class Job {
         this.description = description;
     }
 
-    public void setPosition(JobPosition position) {this.position = position;}
-
-    public void setModality_work(ModalityWork modality_work) {this.modalityWork = modality_work;}
-
-    public void setCurrency(Currency currency) {this.currency = currency;}
 
     public void setSalary(Double salary) {this.salary = salary;}
 
@@ -146,4 +102,5 @@ public class Job {
     public String getRequirement() {
         return requirement;
     }
+
 }
