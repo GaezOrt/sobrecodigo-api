@@ -4,8 +4,17 @@ package com.example.medial.user.dtos;
 
 public class UserCreateFirstStepDto {
     private String email;
+    private String rubro;
     private String password;
     private String username;
+
+    public String getRubro() {
+        return rubro;
+    }
+
+    public void setRubro(String rubro) {
+        this.rubro = rubro;
+    }
 
     public String getUsername() {
         return username;
