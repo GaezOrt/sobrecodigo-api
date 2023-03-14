@@ -45,6 +45,7 @@ public class UserBusiness {
             usuario.setSuperUserFlag(false);
             usuario.setProfessionalFlag(false);
             usuario.setDni(null);
+
             usuario.setEmail(userCreateFirstStepDto.getEmail());
             usuario.setUsername(userCreateFirstStepDto.getUsername());
 
