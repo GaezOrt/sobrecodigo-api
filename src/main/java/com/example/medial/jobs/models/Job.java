@@ -69,11 +69,7 @@ public class Job {
     public JobPosition getPosition() {
         return position;
     }
-
-    public void setPosition(JobPosition position) {
-        this.position = position;
-    }
-
+    
     public String getDescription() {
         return description;
     }
@@ -90,9 +86,6 @@ public class Job {
         return currency;
     }
 
-    public void setCurrency(Currency currency) {
-        this.currency = currency;
-    }
 
     public Double getSalary() {
         return salary;
