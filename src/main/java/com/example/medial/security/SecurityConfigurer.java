@@ -40,6 +40,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 antMatchers("/1.0/projects/recent-projects").permitAll().
                 antMatchers("/1.0/jobs/recent-jobs").permitAll().
                 antMatchers("/1.0/jobs/new-jobs").permitAll().
+                antMatchers("/1.0/jobs/new-job").permitAll().
                 antMatchers("/1.0/projects/by-user").permitAll().
                 antMatchers("/1.0/users/info").permitAll().
 

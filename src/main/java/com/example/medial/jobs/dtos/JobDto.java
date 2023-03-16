@@ -1,17 +1,38 @@
 package com.example.medial.jobs.dtos;
 
+import com.example.medial.jobs.models.JobPosition;
+
 public class JobDto {
     private Long id;
-    private String name;
+    private String title;
     private String description;
-    private String position;
+    private JobPositionDto position;
+    private CurrencyDto currency;
+    private Double salary;
 
-    public String getPosition() {
+    public Double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Double salary) {
+        this.salary = salary;
+    }
+
+
+    public JobPositionDto getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(JobPositionDto position) {
         this.position = position;
+    }
+
+    public CurrencyDto getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(CurrencyDto currency) {
+        this.currency = currency;
     }
 
     public Long getId() {
@@ -22,12 +43,12 @@ public class JobDto {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {

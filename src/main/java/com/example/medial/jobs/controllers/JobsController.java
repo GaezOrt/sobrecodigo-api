@@ -28,5 +28,12 @@ public class JobsController
         return jobsBusiness.getRecentJobs();
     }
 
+    //Get recent jobs
+    @RequestMapping(value = "/new-job", method = RequestMethod.POST)
+    public @ResponseBody
+    Boolean getJobs(@RequestBody JobDto jobDto) {
+
+        return jobsBusiness.insertJob(jobDto);
+    }
 
 }
