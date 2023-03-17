@@ -3,20 +3,15 @@ package com.example.medial.user.business;
 import com.example.medial.security.AuthFacade;
 import com.example.medial.security.JWTUtil;
 import com.example.medial.user.dtos.*;
-import com.example.medial.user.models.Password;
-import com.example.medial.user.models.Usuario;
-import com.example.medial.user.repositories.PasswordRepository;
-import com.example.medial.user.repositories.UsersRepository;
+import com.example.medial.model.entity.Password;
+import com.example.medial.model.entity.Usuario;
+import com.example.medial.repository.PasswordRepository;
+import com.example.medial.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-
-import java.util.Optional;
 
 
 @Service

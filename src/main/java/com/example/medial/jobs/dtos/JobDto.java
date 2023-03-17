@@ -1,7 +1,5 @@
 package com.example.medial.jobs.dtos;
 
-import com.example.medial.jobs.models.JobPosition;
-
 public class JobDto {
     private Long id;
     private String title;
