@@ -1,6 +1,4 @@
-package com.example.medial.projects.models;
-
-import com.example.medial.user.models.Usuario;
+package com.example.medial.model.entity;
 
 import javax.persistence.*;
 

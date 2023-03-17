@@ -1,4 +1,4 @@
-package com.example.medial.user.models;
+package com.example.medial.model.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

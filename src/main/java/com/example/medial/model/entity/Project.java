@@ -1,4 +1,4 @@
-package com.example.medial.projects.models;
+package com.example.medial.model.entity;
 
 import javax.persistence.*;
 
