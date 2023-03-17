@@ -1,4 +1,4 @@
-package com.example.medial.enums;
+package com.example.medial.model.enums;
 
 public interface CustomEnum {
 
