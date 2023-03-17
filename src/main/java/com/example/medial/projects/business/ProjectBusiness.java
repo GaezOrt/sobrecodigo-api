@@ -1,14 +1,13 @@
 package com.example.medial.projects.business;
 
 import com.example.medial.projects.dtos.ProjectDto;
-import com.example.medial.projects.models.Project;
-import com.example.medial.projects.models.ProjectParticipation;
-import com.example.medial.projects.repositories.ProjectsParticipationRepository;
-import com.example.medial.projects.repositories.ProjectsRepository;
+import com.example.medial.model.entity.Project;
+import com.example.medial.model.entity.ProjectParticipation;
+import com.example.medial.repository.ProjectsParticipationRepository;
+import com.example.medial.repository.ProjectsRepository;
 import com.example.medial.security.AuthFacade;
-import com.example.medial.user.models.Usuario;
+import com.example.medial.model.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

@@ -2,12 +2,12 @@ package com.example.medial.jobs.business;
 
 import com.example.medial.jobs.dtos.JobDto;
 import com.example.medial.jobs.dtos.JobPositionDto;
-import com.example.medial.jobs.models.Currency;
-import com.example.medial.jobs.models.Job;
-import com.example.medial.jobs.models.JobPosition;
-import com.example.medial.jobs.repositories.CurrenciesRepository;
-import com.example.medial.jobs.repositories.JobsPositionRepository;
-import com.example.medial.jobs.repositories.JobsRepository;
+import com.example.medial.model.entity.Currency;
+import com.example.medial.model.entity.Job;
+import com.example.medial.model.entity.JobPosition;
+import com.example.medial.repository.CurrenciesRepository;
+import com.example.medial.repository.JobsPositionRepository;
+import com.example.medial.repository.JobsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

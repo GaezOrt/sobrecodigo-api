@@ -2,12 +2,10 @@ package com.example.medial.user.business;
 
 import com.example.medial.user.dtos.ChangePasswordCodeDto;
 import com.example.medial.user.dtos.ChangePasswordDto;
-import com.example.medial.user.dtos.UserCreateDto;
-import com.example.medial.user.dtos.UserLogInDto;
-import com.example.medial.user.models.Password;
-import com.example.medial.user.models.Usuario;
-import com.example.medial.user.repositories.PasswordRepository;
-import com.example.medial.user.repositories.UsersRepository;
+import com.example.medial.model.entity.Password;
+import com.example.medial.model.entity.Usuario;
+import com.example.medial.repository.PasswordRepository;
+import com.example.medial.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

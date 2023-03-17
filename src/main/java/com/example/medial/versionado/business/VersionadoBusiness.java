@@ -1,7 +1,7 @@
 package com.example.medial.versionado.business;
 
-import com.example.medial.versionado.models.Versionado;
-import com.example.medial.versionado.repositories.VersionadoRepository;
+import com.example.medial.model.entity.Versionado;
+import com.example.medial.repository.VersionadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +24,4 @@ public class VersionadoBusiness {
             return true;
         }
     }
-
 }

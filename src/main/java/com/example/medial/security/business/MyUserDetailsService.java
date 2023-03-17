@@ -1,9 +1,9 @@
 package com.example.medial.security.business;
 
-import com.example.medial.user.models.Password;
-import com.example.medial.user.models.Usuario;
-import com.example.medial.user.repositories.PasswordRepository;
-import com.example.medial.user.repositories.UsersRepository;
+import com.example.medial.model.entity.Password;
+import com.example.medial.model.entity.Usuario;
+import com.example.medial.repository.PasswordRepository;
+import com.example.medial.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
