@@ -1,10 +1,8 @@
-package com.example.medial.projects.controllers;
+package com.example.medial.controller;
 
-import com.example.medial.enums.Api;
+import com.example.medial.model.enums.Api;
 import com.example.medial.projects.business.ProjectBusiness;
 import com.example.medial.projects.dtos.ProjectDto;
-import com.example.medial.projects.models.Project;
-import com.example.medial.user.dtos.UserInfoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

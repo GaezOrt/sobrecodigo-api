@@ -1,21 +1,11 @@
-package com.example.medial.user.controllers;
+package com.example.medial.controller;
 
 import com.example.medial.user.business.EmailChangeBusiness;
 import com.example.medial.user.dtos.ChangePasswordCodeDto;
 import com.example.medial.user.dtos.ChangePasswordDto;
-import com.example.medial.user.models.Email;
-import com.example.medial.user.models.Usuario;
-import com.example.medial.user.repositories.UsersRepository;
+import com.example.medial.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import java.util.Properties;
 
 @RestController("newchangePasswordController")
 @RequestMapping("/1.0/users/change-password")

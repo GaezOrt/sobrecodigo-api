@@ -1,9 +1,8 @@
-package com.example.medial.jobs.controllers;
+package com.example.medial.controller;
 
-import com.example.medial.enums.Api;
+import com.example.medial.model.enums.Api;
 import com.example.medial.jobs.business.JobsBusiness;
 import com.example.medial.jobs.dtos.JobDto;
-import com.example.medial.jobs.models.Job;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -21,9 +20,9 @@ public class JobsController
     private JobsBusiness jobsBusiness;
 
     //Get recent jobs
-    @RequestMapping(value = "/new-jobs", method = RequestMethod.GET)
+    @RequestMapping(value = "/recent-jobs", method = RequestMethod.GET)
     public @ResponseBody
-    List<JobDto> getJobs() {
+    List<JobDto> getRecentJobs() {
 
         return jobsBusiness.getRecentJobs();
     }
@@ -35,5 +34,7 @@ public class JobsController
 
         return jobsBusiness.insertJob(jobDto);
     }
+
+
 
 }

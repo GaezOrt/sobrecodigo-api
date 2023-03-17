@@ -1,26 +1,11 @@
-package com.example.medial.user.controllers;
+package com.example.medial.controller;
 
-import com.azure.identity.DefaultAzureCredential;
-import com.azure.identity.DefaultAzureCredentialBuilder;
-import com.azure.storage.blob.BlobClient;
-import com.azure.storage.blob.BlobContainerClient;
-import com.azure.storage.blob.BlobServiceClient;
-import com.azure.storage.blob.BlobServiceClientBuilder;
-import com.example.medial.enums.Api;
+import com.example.medial.model.enums.Api;
 import com.example.medial.user.business.UserBusiness;
 import com.example.medial.user.dtos.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.WritableResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.text.ParseException;
-import java.time.LocalDateTime;
 
 //spring.datasource.url=jdbc:sqlserver://tunero.database.windows.net:1433;database=turnos_db
 

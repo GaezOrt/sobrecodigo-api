@@ -1,6 +1,5 @@
-package com.example.medial.versionado.controllers;
+package com.example.medial.controller;
 
-import com.example.medial.user.dtos.ChangePasswordDto;
 import com.example.medial.versionado.business.VersionadoBusiness;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
