@@ -1,16 +1,17 @@
-package com.example.medial.user.repositories;
+package com.example.medial.repository;
 
-import com.example.medial.user.models.Password;
-import com.example.medial.user.models.Usuario;
+import com.example.medial.model.entity.Password;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-    public interface PasswordRepository extends CrudRepository<Password, Long> {
+@Repository
+public interface PasswordRepository extends CrudRepository<Password, Long> {
 
     @Query(value = "select * from dbo.password",
             nativeQuery = true)
@@ -18,7 +19,7 @@ import java.util.List;
 
     @Query(value = "select * from [dbo].[password] WHERE user_id = ?1",
             nativeQuery = true)
-   Password findPasswordByUserId(Long id);
+    Password findPasswordByUserId(Long id);
 
     @Modifying
     @Transactional(propagation = Propagation.REQUIRES_NEW)

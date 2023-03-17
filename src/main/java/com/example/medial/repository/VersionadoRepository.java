@@ -1,13 +1,11 @@
-package com.example.medial.versionado.repositories;
+package com.example.medial.repository;
 
-import com.example.medial.user.models.Password;
-import com.example.medial.versionado.models.Versionado;
+import com.example.medial.model.entity.Versionado;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
-
+@Repository
 public interface VersionadoRepository extends CrudRepository<Versionado, Long> {
 
 

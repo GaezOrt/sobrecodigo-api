@@ -1,17 +1,17 @@
-package com.example.medial.user.repositories;
+package com.example.medial.repository;
 
-import com.example.medial.user.models.Usuario;
+import com.example.medial.model.entity.Usuario;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
+@Repository
 public interface UsersRepository extends CrudRepository<Usuario, Long> {
 
     @Query(value = "select * from dbo.dim_user",

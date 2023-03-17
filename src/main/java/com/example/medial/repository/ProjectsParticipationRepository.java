@@ -1,12 +1,13 @@
-package com.example.medial.projects.repositories;
+package com.example.medial.repository;
 
-import com.example.medial.projects.models.Project;
-import com.example.medial.projects.models.ProjectParticipation;
+import com.example.medial.model.entity.ProjectParticipation;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface ProjectsParticipationRepository extends CrudRepository<ProjectParticipation, Long> {
 
     @Query(value = "select * from dbo.projects_participation WHERE user_id = ?1",
