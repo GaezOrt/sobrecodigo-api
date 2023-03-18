@@ -44,6 +44,10 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 antMatchers("/1.0/projects/by-user").permitAll().
                 antMatchers("/1.0/users/info").permitAll().
 
+                //para poder ver todos los endpoints navegando a "localhost:8080/swagger-ui/index.html"
+                antMatchers("/swagger-ui/**").permitAll().
+                antMatchers("/v3/api-docs/**").permitAll().
+
                 anyRequest().authenticated();
         httpSecurity.exceptionHandling().accessDeniedPage("/1.0/users/log-in");
         httpSecurity.csrf().disable();
