@@ -18,6 +18,6 @@ public class VersionadoBusiness {
         String version = params.get("version");
         String os = params.get("os");
         Versionado versionado = versionadoRepository.findByVersionAndOs(version, os);
-        return (versionado == null);
+        return !(versionado == null);
     }
 }
