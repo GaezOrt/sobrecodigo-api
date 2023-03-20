@@ -3,11 +3,14 @@ package com.example.medial.projects.business;
 import com.example.medial.projects.dtos.ProjectDto;
 import com.example.medial.model.entity.Project;
 import com.example.medial.model.entity.ProjectParticipation;
+import com.example.medial.repository.PagAndSortingRepository;
 import com.example.medial.repository.ProjectsParticipationRepository;
 import com.example.medial.repository.ProjectsRepository;
 import com.example.medial.security.AuthFacade;
 import com.example.medial.model.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,14 +23,25 @@ public class ProjectBusiness {
     private ProjectsRepository projectsRepository;
 
     @Autowired
+    private PagAndSortingRepository pagAndSortingRepository;
+
+    @Autowired
     private AuthFacade authFacade;
 
     @Autowired
     private ProjectsParticipationRepository projectsParticipationRepository;
 
+
+
+
+    public Page<Project> FindAll(Pageable pageable){
+       return pagAndSortingRepository.findAll(pageable);
+    }
+
+
+
     public List<ProjectDto> getProjectsByUser() {
         Usuario usuario = authFacade.getUsuarioLoggeado();
-
         List<ProjectParticipation> projects = projectsParticipationRepository.findByUserId(usuario.getId());
         List<ProjectDto> projectDtos = new ArrayList<>();
         for (ProjectParticipation project : projects) {
