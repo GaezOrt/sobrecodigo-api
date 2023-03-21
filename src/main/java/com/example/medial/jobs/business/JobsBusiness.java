@@ -69,7 +69,7 @@ public class JobsBusiness {
         job.setRelocation(true);
         job.setSalary(jobDto.getSalary());
         job.setTitle(jobDto.getTitle());
-        //job.setModalityWork?
+        job.setEnterprise(jobDto.getEnterprise());
         jobsRepository.save(job);
         return true;
 

@@ -7,6 +7,15 @@ public class JobDto {
     private JobPositionDto position;
     private CurrencyDto currency;
     private Double salary;
+    private String enterprise;
+
+    public String getEnterprise() {
+        return enterprise;
+    }
+
+    public void setEnterprise(String enterprise) {
+        this.enterprise = enterprise;
+    }
 
     public Double getSalary() {
         return salary;

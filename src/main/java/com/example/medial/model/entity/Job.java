@@ -36,6 +36,17 @@ public class Job {
     @Column(name = "requirement")
     private String requirement;
 
+    @Column(name = "enterprise")
+    private String enterprise;
+
+    public String getEnterprise() {
+        return enterprise;
+    }
+
+    public void setEnterprise(String enterprise) {
+        this.enterprise = enterprise;
+    }
+
     public String getTitle() {
         return title;
     }
