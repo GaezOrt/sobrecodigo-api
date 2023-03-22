@@ -8,6 +8,15 @@ public class JobDto {
     private CurrencyDto currency;
     private Double salary;
     private String enterprise;
+    private String tecnologies;
+
+    public String getTecnologies() {
+        return tecnologies;
+    }
+
+    public void setTecnologies(String tecnologies) {
+        this.tecnologies = tecnologies;
+    }
 
     public String getEnterprise() {
         return enterprise;

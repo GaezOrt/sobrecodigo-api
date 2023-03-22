@@ -2,6 +2,7 @@ package com.example.medial.jobs.business;
 
 import com.example.medial.exceptions.CurrencyNotFoundException;
 import com.example.medial.exceptions.JobNotFoundException;
+import com.example.medial.jobs.dtos.CurrencyDto;
 import com.example.medial.jobs.dtos.JobDto;
 import com.example.medial.jobs.dtos.JobPositionDto;
 import com.example.medial.model.entity.Currency;
@@ -39,8 +40,13 @@ public class JobsBusiness {
             jobDto.setId(job.getId());
             jobDto.setDescription(job.getDescription());
             jobDto.setTitle(job.getTitle());
-            jobDto.setSalary(job.getSalary());
 
+            CurrencyDto currencyDto = new CurrencyDto();
+            currencyDto.setCurrency(job.getCurrency().getCurrency());
+            currencyDto.setId(job.getCurrency().getId());
+            jobDto.setCurrency(currencyDto);
+            jobDto.setSalary(job.getSalary());
+            jobDto.setTecnologies(job.getTecnologies());
             JobPositionDto jobPositionDto = new JobPositionDto();
             jobPositionDto.setPosition(job.getPosition().getPosition());
             jobPositionDto.setId(job.getPosition().getId());
@@ -70,6 +76,8 @@ public class JobsBusiness {
         job.setSalary(jobDto.getSalary());
         job.setTitle(jobDto.getTitle());
         job.setEnterprise(jobDto.getEnterprise());
+        job.setTecnologies(jobDto.getTecnologies());
+
         jobsRepository.save(job);
         return true;
 

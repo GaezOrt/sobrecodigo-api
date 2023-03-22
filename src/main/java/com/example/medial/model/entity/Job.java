@@ -39,6 +39,17 @@ public class Job {
     @Column(name = "enterprise")
     private String enterprise;
 
+    @Column(name = "tecnologies")
+    private String tecnologies;
+
+    public String getTecnologies() {
+        return tecnologies;
+    }
+
+    public void setTecnologies(String tecnologies) {
+        this.tecnologies = tecnologies;
+    }
+
     public String getEnterprise() {
         return enterprise;
     }
