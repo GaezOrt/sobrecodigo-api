@@ -3,9 +3,12 @@ package com.example.medial.controller;
 import com.example.medial.model.enums.Api;
 import com.example.medial.user.business.UserBusiness;
 import com.example.medial.user.dtos.*;
+import com.example.medial.user.dtos.response.UserCardDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 //spring.datasource.url=jdbc:sqlserver://tunero.database.windows.net:1433;database=turnos_db
 
@@ -39,6 +42,12 @@ public class UserController {
     UserInfoDto userInfo() {
 
         return userBusiness.userInfo();
+    }
+    @RequestMapping(value = "/active", method = RequestMethod.GET)
+    public @ResponseBody
+    List<UserCardDto> getActiveUsers() {
+
+        return userBusiness.getActiveUsers();
     }
 
 }

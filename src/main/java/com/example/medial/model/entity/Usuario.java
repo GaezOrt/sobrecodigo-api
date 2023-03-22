@@ -30,11 +30,20 @@ public class Usuario {
     @Column(name = "professional_flag")
     private boolean professionalFlag;
 
-    @Column(name = "super_user_flag")
-    private boolean superUserFlag;
-
     @Column(name = "country")
     private Long country;
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name = "profile_picture")
+    private ProfilePicture profilePicture;
+
+    public ProfilePicture getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(ProfilePicture profilePicture) {
+        this.profilePicture = profilePicture;
+    }
 
     public Long getId() {
         return id;
@@ -91,14 +100,6 @@ public class Usuario {
 
     public void setProfessionalFlag(boolean professionalFlag) {
         this.professionalFlag = professionalFlag;
-    }
-
-    public boolean isSuperUserFlag() {
-        return superUserFlag;
-    }
-
-    public void setSuperUserFlag(boolean superUserFlag) {
-        this.superUserFlag = superUserFlag;
     }
 
     public Date getBirthDate() {

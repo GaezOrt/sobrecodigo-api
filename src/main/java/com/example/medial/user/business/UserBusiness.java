@@ -1,5 +1,7 @@
 package com.example.medial.user.business;
 
+import com.example.medial.model.entity.ProfilePicture;
+import com.example.medial.repository.ProfilePictureRepository;
 import com.example.medial.security.AuthFacade;
 import com.example.medial.security.JWTUtil;
 import com.example.medial.user.dtos.*;
@@ -7,11 +9,16 @@ import com.example.medial.model.entity.Password;
 import com.example.medial.model.entity.Usuario;
 import com.example.medial.repository.PasswordRepository;
 import com.example.medial.repository.UsersRepository;
+import com.example.medial.user.dtos.response.UserCardDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 
 @Service
@@ -34,16 +41,19 @@ public class UserBusiness {
     @Autowired
     private AuthFacade authFacade;
 
+    @Autowired
+    private ProfilePictureRepository profilePictureRepository;
+
     public boolean registerFirstStep(UserCreateFirstStepDto userCreateFirstStepDto) throws Exception {
         try {
             Usuario usuario = new Usuario();
-            usuario.setSuperUserFlag(false);
             usuario.setProfessionalFlag(false);
             usuario.setDni(null);
 
             usuario.setEmail(userCreateFirstStepDto.getEmail());
             usuario.setUsername(userCreateFirstStepDto.getUsername());
-
+            ProfilePicture img = getImages();
+            usuario.setProfilePicture(img);
             usuario=userRepository.save(usuario);
             Password password= new Password();
             password.setUserId(usuario);
@@ -92,4 +102,30 @@ public class UserBusiness {
         userInfoDto.setEmail(usuario.getEmail());
         return userInfoDto;
     }
+
+    public List<UserCardDto> getActiveUsers() {
+
+        List<Usuario> usuariosActivos = userRepository.findAll();
+        List<UserCardDto> userCardDtos = new ArrayList<>();
+        for( Usuario usuario : usuariosActivos){
+            UserCardDto userCardDto = new UserCardDto();
+            userCardDto.setPosition("Trainee");
+            userCardDto.setContribucionesGit((long)20);
+            userCardDto.setUsername(usuario.getUsername());
+            userCardDto.setProfileImageUrl(usuario.getProfilePicture().getUrl());
+            userCardDto.setGitHubLink("https://www.linkedin.com/company/sobrecodigo/");
+            userCardDto.setProyectosCompletados((long)20);
+            userCardDto.setDesafiosCompletados((long)243);
+
+            userCardDtos.add(userCardDto);
+        }
+        return userCardDtos;
+    }
+
+    public ProfilePicture getImages() {
+        List<ProfilePicture> imgsList= (List<ProfilePicture>) profilePictureRepository.findAll();
+        Random rand = new Random();
+        return imgsList.get(rand.nextInt(imgsList.size()));
+    }
+
 }
