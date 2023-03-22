@@ -3,8 +3,8 @@ package com.example.medial.model.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "applications")
-public class Application {
+@Table(name = "postulations")
+public class Postulation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
