@@ -8,8 +8,12 @@ public class JobPostulations {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "job_id")
     private Job jobId;
+
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "postulation_id")
     private Postulation postulationId;
 
