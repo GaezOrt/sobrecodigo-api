@@ -2,6 +2,7 @@ package com.example.medial.service;
 
 import com.example.medial.exceptions.CurrencyNotFoundException;
 import com.example.medial.exceptions.JobNotFoundException;
+import com.example.medial.model.dto.CurrencyDto;
 import com.example.medial.model.dto.JobDto;
 import com.example.medial.model.dto.JobPositionDto;
 import com.example.medial.model.entity.Currency;
