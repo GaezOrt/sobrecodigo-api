@@ -1,9 +1,6 @@
 package com.example.medial.controller;
 
-import com.example.medial.model.dto.UserCreateFirstStepDto;
-import com.example.medial.model.dto.UserInfoDto;
-import com.example.medial.model.dto.UserLogInDto;
-import com.example.medial.model.dto.UserLoggedInDto;
+import com.example.medial.model.dto.*;
 import com.example.medial.model.enums.Api;
 import com.example.medial.service.UserServiceImpl;
 import com.example.medial.user.dtos.response.UserCardDto;
@@ -48,7 +45,7 @@ public class UserController {
     }
     @RequestMapping(value = "/active", method = RequestMethod.GET)
     public @ResponseBody
-    List<UserCardDto> getActiveUsers() {
+    List<UserCreateSecondStepDto.UserCardDto> getActiveUsers() {
 
         return userBusiness.getActiveUsers();
     }

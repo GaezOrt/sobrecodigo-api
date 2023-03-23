@@ -1,14 +1,14 @@
 package com.example.medial.service;
 
 import com.example.medial.model.dto.*;
+import com.example.medial.model.entity.ProfilePicture;
+import com.example.medial.repository.ProfilePictureRepository;
 import com.example.medial.security.AuthFacade;
 import com.example.medial.security.JWTUtil;
-import com.example.medial.user.dtos.*;
 import com.example.medial.model.entity.Password;
 import com.example.medial.model.entity.Usuario;
 import com.example.medial.repository.PasswordRepository;
 import com.example.medial.repository.UsersRepository;
-import com.example.medial.user.dtos.response.UserCardDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -46,7 +46,6 @@ public class UserServiceImpl {
     public boolean registerFirstStep(UserCreateFirstStepDto userCreateFirstStepDto) throws Exception {
         try {
             Usuario usuario = new Usuario();
-            usuario.setSuperUserFlag(false);
             usuario.setProfessionalFlag(false);
             usuario.setDni(null);
 
@@ -103,12 +102,12 @@ public class UserServiceImpl {
         return userInfoDto;
     }
 
-    public List<UserCardDto> getActiveUsers() {
+    public List<UserCreateSecondStepDto.UserCardDto> getActiveUsers() {
 
         List<Usuario> usuariosActivos = userRepository.findAll();
-        List<UserCardDto> userCardDtos = new ArrayList<>();
+        List<UserCreateSecondStepDto.UserCardDto> userCardDtos = new ArrayList<>();
         for( Usuario usuario : usuariosActivos){
-            UserCardDto userCardDto = new UserCardDto();
+            UserCreateSecondStepDto.UserCardDto userCardDto = new UserCreateSecondStepDto.UserCardDto();
             userCardDto.setPosition("Trainee");
             userCardDto.setContribucionesGit((long)20);
             userCardDto.setUsername(usuario.getUsername());
