@@ -1,4 +1,4 @@
-package com.example.medial.projects.dtos;
+package com.example.medial.model.dto;
 
 public class ProjectDto {
 

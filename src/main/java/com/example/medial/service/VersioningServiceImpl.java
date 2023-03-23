@@ -1,4 +1,4 @@
-package com.example.medial.versionado.business;
+package com.example.medial.service;
 
 import com.example.medial.model.entity.Versionado;
 import com.example.medial.repository.VersionadoRepository;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 
 @Service
-public class VersionadoBusiness {
+public class VersioningServiceImpl {
 
     @Autowired
     private VersionadoRepository versionadoRepository;
