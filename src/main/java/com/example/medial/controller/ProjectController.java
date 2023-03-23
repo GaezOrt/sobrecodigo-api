@@ -1,8 +1,8 @@
 package com.example.medial.controller;
 
 import com.example.medial.model.enums.Api;
-import com.example.medial.projects.business.ProjectBusiness;
-import com.example.medial.projects.dtos.ProjectDto;
+import com.example.medial.service.ProjectServiceImpl;
+import com.example.medial.model.dto.ProjectDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ import java.util.List;
 public class ProjectController {
 
     @Autowired
-    private ProjectBusiness projectBusiness;
+    private ProjectServiceImpl projectBusiness;
 
     //Get recent projects
     @RequestMapping(value = "/recent-projects", method = RequestMethod.GET)
