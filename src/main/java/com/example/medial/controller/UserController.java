@@ -6,6 +6,7 @@ import com.example.medial.model.dto.UserLogInDto;
 import com.example.medial.model.dto.UserLoggedInDto;
 import com.example.medial.model.enums.Api;
 import com.example.medial.service.UserServiceImpl;
+import com.example.medial.user.dtos.response.UserCardDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
