@@ -43,6 +43,9 @@ public class UserServiceImpl {
     @Autowired
     private ProfilePictureRepository profilePictureRepository;
 
+    @Autowired
+    private TechnologiesServiceImpl technologiesService;
+
     public boolean registerFirstStep(UserCreateFirstStepDto userCreateFirstStepDto) throws Exception {
         try {
             Usuario usuario = new Usuario();
@@ -54,6 +57,8 @@ public class UserServiceImpl {
             ProfilePicture img = getImages();
             usuario.setProfilePicture(img);
             usuario=userRepository.save(usuario);
+
+            technologiesService.saveTechnologies(usuario, userCreateFirstStepDto.getTechnologiesDto());
             Password password= new Password();
             password.setUserId(usuario);
             password.setPassword(userCreateFirstStepDto.getPassword());

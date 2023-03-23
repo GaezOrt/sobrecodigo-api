@@ -7,6 +7,15 @@ public class UserCreateFirstStepDto {
     private String rubro;
     private String password;
     private String username;
+    private TechnologiesDto technologiesDto;
+
+    public TechnologiesDto getTechnologiesDto() {
+        return technologiesDto;
+    }
+
+    public void setTechnologiesDto(TechnologiesDto technologiesDto) {
+        this.technologiesDto = technologiesDto;
+    }
 
     public String getRubro() {
         return rubro;

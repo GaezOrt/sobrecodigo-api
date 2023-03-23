@@ -28,6 +28,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
         httpSecurity.authorizeRequests().antMatchers("/1.0/users/log-in").permitAll()
                 .antMatchers("/1.0/users/prueba").permitAll()
                 .antMatchers("/1.0/users/active").permitAll()
+                .antMatchers("/1.0/technologies/").permitAll()
                 .antMatchers("/1.0/users/register-first-step").permitAll()
                 .antMatchers("/1.0/documents/").permitAll()
                 .antMatchers("/1.0/paises/").permitAll()
