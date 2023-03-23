@@ -1,4 +1,4 @@
-package com.example.medial.jobs.dtos;
+package com.example.medial.model.dto;
 
 public class JobDto {
     private Long id;
