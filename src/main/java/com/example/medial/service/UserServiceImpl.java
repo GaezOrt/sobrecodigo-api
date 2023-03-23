@@ -1,8 +1,8 @@
-package com.example.medial.user.business;
+package com.example.medial.service;
 
+import com.example.medial.model.dto.*;
 import com.example.medial.security.AuthFacade;
 import com.example.medial.security.JWTUtil;
-import com.example.medial.user.dtos.*;
 import com.example.medial.model.entity.Password;
 import com.example.medial.model.entity.Usuario;
 import com.example.medial.repository.PasswordRepository;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class UserBusiness {
+public class UserServiceImpl {
     @Autowired
     UsersRepository userRepository;
 
