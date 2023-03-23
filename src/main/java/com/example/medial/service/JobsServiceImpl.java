@@ -1,10 +1,9 @@
-package com.example.medial.jobs.business;
+package com.example.medial.service;
 
 import com.example.medial.exceptions.CurrencyNotFoundException;
 import com.example.medial.exceptions.JobNotFoundException;
-import com.example.medial.jobs.dtos.CurrencyDto;
-import com.example.medial.jobs.dtos.JobDto;
-import com.example.medial.jobs.dtos.JobPositionDto;
+import com.example.medial.model.dto.JobDto;
+import com.example.medial.model.dto.JobPositionDto;
 import com.example.medial.model.entity.Currency;
 import com.example.medial.model.entity.Job;
 import com.example.medial.model.entity.JobPosition;
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class JobsBusiness {
+public class JobsServiceImpl {
 
     @Autowired
     private JobsRepository jobsRepository;

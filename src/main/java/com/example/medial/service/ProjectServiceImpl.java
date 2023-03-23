@@ -1,6 +1,6 @@
-package com.example.medial.projects.business;
+package com.example.medial.service;
 
-import com.example.medial.projects.dtos.ProjectDto;
+import com.example.medial.model.dto.ProjectDto;
 import com.example.medial.model.entity.Project;
 import com.example.medial.model.entity.ProjectParticipation;
 import com.example.medial.repository.ProjectsParticipationRepository;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ProjectBusiness {
+public class ProjectServiceImpl {
 
     @Autowired
     private ProjectsRepository projectsRepository;

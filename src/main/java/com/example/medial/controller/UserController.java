@@ -1,8 +1,8 @@
 package com.example.medial.controller;
 
+import com.example.medial.model.dto.*;
 import com.example.medial.model.enums.Api;
-import com.example.medial.user.business.UserBusiness;
-import com.example.medial.user.dtos.*;
+import com.example.medial.service.UserServiceImpl;
 import com.example.medial.user.dtos.response.UserCardDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +19,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserBusiness userBusiness;
+    private UserServiceImpl userBusiness;
 
     @RequestMapping(value = "/log-in", method = RequestMethod.POST)
     public @ResponseBody
@@ -45,7 +45,7 @@ public class UserController {
     }
     @RequestMapping(value = "/active", method = RequestMethod.GET)
     public @ResponseBody
-    List<UserCardDto> getActiveUsers() {
+    List<UserCreateSecondStepDto.UserCardDto> getActiveUsers() {
 
         return userBusiness.getActiveUsers();
     }

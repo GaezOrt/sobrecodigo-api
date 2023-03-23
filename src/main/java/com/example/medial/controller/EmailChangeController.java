@@ -1,8 +1,8 @@
 package com.example.medial.controller;
 
-import com.example.medial.user.business.EmailChangeBusiness;
-import com.example.medial.user.dtos.ChangePasswordCodeDto;
-import com.example.medial.user.dtos.ChangePasswordDto;
+import com.example.medial.service.EmailChangeServiceImpl;
+import com.example.medial.model.dto.ChangePasswordCodeDto;
+import com.example.medial.model.dto.ChangePasswordDto;
 import com.example.medial.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +15,7 @@ public class EmailChangeController {
     private UsersRepository usersRepository;
 
     @Autowired
-    private EmailChangeBusiness emailChangeBusiness;
+    private EmailChangeServiceImpl emailChangeBusiness;
 
     @RequestMapping(value = "/request", method = RequestMethod.POST)
     public boolean changePassword(@RequestBody ChangePasswordDto changePasswordDto) throws Exception {

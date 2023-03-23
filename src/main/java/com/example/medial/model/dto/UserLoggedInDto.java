@@ -1,8 +1,8 @@
-package com.example.medial.user.dtos;
+package com.example.medial.model.dto;
 
 
 
-public class UserCreatedDto {
+public class UserLoggedInDto {
     private String token;
 
     public String getToken() {
