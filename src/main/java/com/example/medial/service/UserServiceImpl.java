@@ -1,7 +1,6 @@
-package com.example.medial.user.business;
+package com.example.medial.service;
 
-import com.example.medial.model.entity.ProfilePicture;
-import com.example.medial.repository.ProfilePictureRepository;
+import com.example.medial.model.dto.*;
 import com.example.medial.security.AuthFacade;
 import com.example.medial.security.JWTUtil;
 import com.example.medial.user.dtos.*;
@@ -22,7 +21,7 @@ import java.util.Random;
 
 
 @Service
-public class UserBusiness {
+public class UserServiceImpl {
     @Autowired
     UsersRepository userRepository;
 
@@ -47,6 +46,7 @@ public class UserBusiness {
     public boolean registerFirstStep(UserCreateFirstStepDto userCreateFirstStepDto) throws Exception {
         try {
             Usuario usuario = new Usuario();
+            usuario.setSuperUserFlag(false);
             usuario.setProfessionalFlag(false);
             usuario.setDni(null);
 

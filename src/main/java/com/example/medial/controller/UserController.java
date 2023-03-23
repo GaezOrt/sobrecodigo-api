@@ -1,9 +1,11 @@
 package com.example.medial.controller;
 
+import com.example.medial.model.dto.UserCreateFirstStepDto;
+import com.example.medial.model.dto.UserInfoDto;
+import com.example.medial.model.dto.UserLogInDto;
+import com.example.medial.model.dto.UserLoggedInDto;
 import com.example.medial.model.enums.Api;
-import com.example.medial.user.business.UserBusiness;
-import com.example.medial.user.dtos.*;
-import com.example.medial.user.dtos.response.UserCardDto;
+import com.example.medial.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +21,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserBusiness userBusiness;
+    private UserServiceImpl userBusiness;
 
     @RequestMapping(value = "/log-in", method = RequestMethod.POST)
     public @ResponseBody

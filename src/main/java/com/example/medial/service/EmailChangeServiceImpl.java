@@ -1,7 +1,7 @@
-package com.example.medial.user.business;
+package com.example.medial.service;
 
-import com.example.medial.user.dtos.ChangePasswordCodeDto;
-import com.example.medial.user.dtos.ChangePasswordDto;
+import com.example.medial.model.dto.ChangePasswordCodeDto;
+import com.example.medial.model.dto.ChangePasswordDto;
 import com.example.medial.model.entity.Password;
 import com.example.medial.model.entity.Usuario;
 import com.example.medial.repository.PasswordRepository;
@@ -22,7 +22,7 @@ import java.util.Random;
 
 
 @Service
-public class EmailChangeBusiness {
+public class EmailChangeServiceImpl {
     @Autowired
     UsersRepository userRepository;
 
