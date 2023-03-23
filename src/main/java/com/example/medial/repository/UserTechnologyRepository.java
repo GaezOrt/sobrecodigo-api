@@ -11,6 +11,8 @@ import java.util.List;
 @Repository
 public interface UserTechnologyRepository extends CrudRepository<UserTechnologies, Long> {
 
-
+    @Query(value = "select * from dbo.user_technologies where dbo.user_technologies.user_id = ?1",
+            nativeQuery = true)
+    List<UserTechnologies> findByTechnologiesByUser(Long userId);
 
 }

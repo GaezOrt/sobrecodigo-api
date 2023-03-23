@@ -2,6 +2,7 @@ package com.example.medial.service;
 
 import com.example.medial.model.dto.*;
 import com.example.medial.model.entity.ProfilePicture;
+import com.example.medial.model.entity.UserTechnologies;
 import com.example.medial.repository.ProfilePictureRepository;
 import com.example.medial.security.AuthFacade;
 import com.example.medial.security.JWTUtil;
@@ -103,6 +104,9 @@ public class UserServiceImpl {
         Usuario usuario= authFacade.getUsuarioLoggeado();
 
         UserInfoDto userInfoDto = new UserInfoDto();
+        userInfoDto.setUsername(usuario.getUsername());
+        List<UserTechnologyDto> listaTecnologias= technologiesService.getTechnologiesByUser();
+        userInfoDto.setTecnologias(listaTecnologias);
         userInfoDto.setEmail(usuario.getEmail());
         return userInfoDto;
     }

@@ -1,6 +1,8 @@
 package com.example.medial.service;
 
 import com.example.medial.model.dto.TechnologiesDto;
+import com.example.medial.model.dto.TechnologyDto;
+import com.example.medial.model.dto.UserTechnologyDto;
 import com.example.medial.model.entity.Technology;
 import com.example.medial.model.entity.UserTechnologies;
 import com.example.medial.model.entity.Usuario;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -22,15 +25,31 @@ public class TechnologiesServiceImpl {
     private AuthFacade authFacade;
     @Autowired
     private TechnologiesRepository technologiesRepository;
-
     @Autowired
     private UserTechnologyRepository userTechnologyRepository;
+
 
     public List<Technology> getTechnologies() {
 
         return technologiesRepository.findAll();
     }
+    public List<UserTechnologyDto> getTechnologiesByUser() {
 
+        Usuario usuario = authFacade.getUsuarioLoggeado();
+        List<UserTechnologies> userTecnologies = userTechnologyRepository.findByTechnologiesByUser(usuario.getId());
+        List<UserTechnologyDto > userTechnologyDtos = new ArrayList<>();
+        for(UserTechnologies userTechnologies :userTecnologies){
+            UserTechnologyDto userTechnologyDto = new UserTechnologyDto();
+
+            TechnologyDto technologyDto = new TechnologyDto();
+            technologyDto.setTechnology(userTechnologies.getTechnology().getTechnology());
+            userTechnologyDto.setTechnology(technologyDto);
+            userTechnologyDtos.add(userTechnologyDto);
+        }
+
+        return userTechnologyDtos;
+
+    }
     public boolean saveTechnologies(Usuario usuario, TechnologiesDto technologiesDto) throws IllegalAccessException {
 
         Field[] fields = technologiesDto.getClass().getDeclaredFields();
