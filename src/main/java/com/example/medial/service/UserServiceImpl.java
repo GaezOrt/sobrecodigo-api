@@ -148,4 +148,25 @@ public class UserServiceImpl {
         return imgsList.get(rand.nextInt(imgsList.size()));
     }
 
+
+    public List<UserCreateSecondStepDto.UserCardDto> getMostActiveUsers() {
+
+        List<Usuario> usuariosActivos = userRepository.findMostActive();
+        List<UserCreateSecondStepDto.UserCardDto> userCardDtos = new ArrayList<>();
+        for( Usuario usuario : usuariosActivos){
+            UserCreateSecondStepDto.UserCardDto userCardDto = new UserCreateSecondStepDto.UserCardDto();
+            userCardDto.setPosition("Trainee");
+            userCardDto.setContribucionesGit((long)20);
+            userCardDto.setUsername(usuario.getUsername());
+            userCardDto.setProfileImageUrl(usuario.getProfilePicture().getUrl());
+            userCardDto.setGitHubLink("https://www.linkedin.com/company/sobrecodigo/");
+            userCardDto.setProyectosCompletados((long)20);
+            userCardDto.setDesafiosCompletados((long)243);
+
+            userCardDtos.add(userCardDto);
+        }
+        return userCardDtos;
+    }
+
+
 }

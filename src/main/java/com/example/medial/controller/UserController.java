@@ -49,4 +49,11 @@ public class UserController {
         return userBusiness.getActiveUsers();
     }
 
+    @RequestMapping(value = "/most-active", method = RequestMethod.GET)
+    public @ResponseBody
+    List<UserCreateSecondStepDto.UserCardDto> getMostActiveUsers() {
+
+        return userBusiness.getMostActiveUsers();
+    }
+
 }
