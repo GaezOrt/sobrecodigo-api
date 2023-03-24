@@ -8,6 +8,24 @@ public class UserCreateFirstStepDto {
     private String password;
     private String username;
     private TechnologiesDto technologiesDto;
+    private String linkedIn;
+    private String github;
+
+    public String getGithub() {
+        return github;
+    }
+
+    public void setGithub(String github) {
+        this.github = github;
+    }
+
+    public String getLinkedIn() {
+        return linkedIn;
+    }
+
+    public void setLinkedIn(String linkedIn) {
+        this.linkedIn = linkedIn;
+    }
 
     public TechnologiesDto getTechnologiesDto() {
         return technologiesDto;

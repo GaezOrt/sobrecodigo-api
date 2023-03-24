@@ -31,7 +31,7 @@ public class UserController {
     public @ResponseBody
     boolean createUser(@RequestBody UserCreateFirstStepDto userCreateFirstStepDto) throws Exception {
 
-        return userBusiness.registerFirstStep(userCreateFirstStepDto);
+        return userBusiness.registerUser(userCreateFirstStepDto);
     }
 
 
@@ -47,6 +47,13 @@ public class UserController {
     List<UserCreateSecondStepDto.UserCardDto> getActiveUsers() {
 
         return userBusiness.getActiveUsers();
+    }
+
+    @RequestMapping(value = "/most-active", method = RequestMethod.GET)
+    public @ResponseBody
+    List<UserCreateSecondStepDto.UserCardDto> getMostActiveUsers() {
+
+        return userBusiness.getMostActiveUsers();
     }
 
 }
