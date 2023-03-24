@@ -31,7 +31,7 @@ public class UserController {
     public @ResponseBody
     boolean createUser(@RequestBody UserCreateFirstStepDto userCreateFirstStepDto) throws Exception {
 
-        return userBusiness.registerFirstStep(userCreateFirstStepDto);
+        return userBusiness.registerUser(userCreateFirstStepDto);
     }
 
 

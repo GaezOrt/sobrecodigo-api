@@ -1,13 +1,11 @@
 package com.example.medial.service;
 
 import com.example.medial.model.dto.*;
-import com.example.medial.model.entity.ProfilePicture;
-import com.example.medial.model.entity.UserTechnologies;
+import com.example.medial.model.entity.*;
 import com.example.medial.repository.ProfilePictureRepository;
+import com.example.medial.repository.UsersLinksRepository;
 import com.example.medial.security.AuthFacade;
 import com.example.medial.security.JWTUtil;
-import com.example.medial.model.entity.Password;
-import com.example.medial.model.entity.Usuario;
 import com.example.medial.repository.PasswordRepository;
 import com.example.medial.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +45,10 @@ public class UserServiceImpl {
     @Autowired
     private TechnologiesServiceImpl technologiesService;
 
-    public boolean registerFirstStep(UserCreateFirstStepDto userCreateFirstStepDto) throws Exception {
+    @Autowired
+    private UsersLinksRepository usersLinksRepository;
+
+    public boolean registerUser(UserCreateFirstStepDto userCreateFirstStepDto) throws Exception {
         try {
             Usuario usuario = new Usuario();
             usuario.setProfessionalFlag(false);
@@ -58,6 +59,12 @@ public class UserServiceImpl {
             ProfilePicture img = getImages();
             usuario.setProfilePicture(img);
             usuario=userRepository.save(usuario);
+
+            UsersLinks usersLinks = new UsersLinks();
+            usersLinks.setLinkedIn(userCreateFirstStepDto.getLinkedIn());
+            usersLinks.setUserId(usuario);
+            usersLinks.setGithub(userCreateFirstStepDto.getGithub());
+            usersLinksRepository.save(usersLinks);
 
             technologiesService.saveTechnologies(usuario, userCreateFirstStepDto.getTechnologiesDto());
             Password password= new Password();
@@ -105,8 +112,13 @@ public class UserServiceImpl {
 
         UserInfoDto userInfoDto = new UserInfoDto();
         userInfoDto.setUsername(usuario.getUsername());
+        UsersLinks usersLinks = usersLinksRepository.findByUserId(usuario.getId());
+
+        userInfoDto.setGithub(usersLinks.getGithub());
+        userInfoDto.setLinkedIn(usersLinks.getLinkedIn());
         List<UserTechnologyDto> listaTecnologias= technologiesService.getTechnologiesByUser();
         userInfoDto.setTecnologias(listaTecnologias);
+
         userInfoDto.setEmail(usuario.getEmail());
         return userInfoDto;
     }
