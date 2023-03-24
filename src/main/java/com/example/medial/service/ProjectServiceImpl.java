@@ -1,6 +1,6 @@
 package com.example.medial.service;
 
-import com.example.medial.model.dto.ProjectDto;
+import com.example.medial.model.dto.response.ProjectDto;
 import com.example.medial.model.entity.Project;
 import com.example.medial.model.entity.ProjectParticipation;
 import com.example.medial.repository.ProjectsParticipationRepository;

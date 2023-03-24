@@ -1,7 +1,5 @@
-package com.example.medial.model.dto;
+package com.example.medial.model.dto.response;
 
-
-import com.example.medial.model.entity.UserTechnologies;
 
 import java.util.List;
 

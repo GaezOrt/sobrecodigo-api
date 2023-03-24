@@ -1,6 +1,7 @@
-package com.example.medial.model.dto;
+package com.example.medial.model.dto.request;
 
 
+import com.example.medial.model.dto.response.TechnologiesDto;
 
 public class UserCreateFirstStepDto {
     private String email;

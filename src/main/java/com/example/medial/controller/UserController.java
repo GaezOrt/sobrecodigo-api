@@ -1,6 +1,10 @@
 package com.example.medial.controller;
 
-import com.example.medial.model.dto.*;
+import com.example.medial.model.dto.request.UserCreateFirstStepDto;
+import com.example.medial.model.dto.request.UserLogInDto;
+import com.example.medial.model.dto.response.UserCreateSecondStepDto;
+import com.example.medial.model.dto.response.UserInfoDto;
+import com.example.medial.model.dto.response.UserLoggedInDto;
 import com.example.medial.model.enums.Api;
 import com.example.medial.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

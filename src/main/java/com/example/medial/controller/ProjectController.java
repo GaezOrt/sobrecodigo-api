@@ -2,7 +2,7 @@ package com.example.medial.controller;
 
 import com.example.medial.model.enums.Api;
 import com.example.medial.service.ProjectServiceImpl;
-import com.example.medial.model.dto.ProjectDto;
+import com.example.medial.model.dto.response.ProjectDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

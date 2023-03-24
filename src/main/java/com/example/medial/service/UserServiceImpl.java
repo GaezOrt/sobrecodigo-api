@@ -1,6 +1,8 @@
 package com.example.medial.service;
 
-import com.example.medial.model.dto.*;
+import com.example.medial.model.dto.request.UserCreateFirstStepDto;
+import com.example.medial.model.dto.request.UserLogInDto;
+import com.example.medial.model.dto.response.*;
 import com.example.medial.model.entity.*;
 import com.example.medial.repository.ProfilePictureRepository;
 import com.example.medial.repository.UsersLinksRepository;

@@ -1,4 +1,4 @@
-package com.example.medial.model.dto;
+package com.example.medial.model.dto.response;
 
 
 import java.util.Date;

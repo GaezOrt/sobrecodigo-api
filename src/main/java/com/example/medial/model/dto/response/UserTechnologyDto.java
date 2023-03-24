@@ -1,11 +1,4 @@
-package com.example.medial.model.dto;
-
-import com.example.medial.model.entity.Technology;
-import com.example.medial.model.entity.Usuario;
-
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+package com.example.medial.model.dto.response;
 
 public class UserTechnologyDto {
 

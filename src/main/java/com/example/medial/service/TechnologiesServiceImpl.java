@@ -1,8 +1,8 @@
 package com.example.medial.service;
 
-import com.example.medial.model.dto.TechnologiesDto;
-import com.example.medial.model.dto.TechnologyDto;
-import com.example.medial.model.dto.UserTechnologyDto;
+import com.example.medial.model.dto.response.TechnologiesDto;
+import com.example.medial.model.dto.response.TechnologyDto;
+import com.example.medial.model.dto.response.UserTechnologyDto;
 import com.example.medial.model.entity.Technology;
 import com.example.medial.model.entity.UserTechnologies;
 import com.example.medial.model.entity.Usuario;
@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 @Service
 public class TechnologiesServiceImpl {

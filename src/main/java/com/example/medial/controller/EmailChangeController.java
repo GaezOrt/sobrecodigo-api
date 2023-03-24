@@ -1,8 +1,8 @@
 package com.example.medial.controller;
 
 import com.example.medial.service.EmailChangeServiceImpl;
-import com.example.medial.model.dto.ChangePasswordCodeDto;
-import com.example.medial.model.dto.ChangePasswordDto;
+import com.example.medial.model.dto.request.ChangePasswordCodeDto;
+import com.example.medial.model.dto.request.ChangePasswordDto;
 import com.example.medial.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

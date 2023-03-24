@@ -1,7 +1,7 @@
 package com.example.medial.service;
 
-import com.example.medial.model.dto.ChangePasswordCodeDto;
-import com.example.medial.model.dto.ChangePasswordDto;
+import com.example.medial.model.dto.request.ChangePasswordCodeDto;
+import com.example.medial.model.dto.request.ChangePasswordDto;
 import com.example.medial.model.entity.Password;
 import com.example.medial.model.entity.Usuario;
 import com.example.medial.repository.PasswordRepository;
