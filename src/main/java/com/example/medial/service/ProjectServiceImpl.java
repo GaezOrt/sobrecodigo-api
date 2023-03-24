@@ -47,6 +47,8 @@ public class ProjectServiceImpl {
             ProjectDto projectDto = new ProjectDto();
             projectDto.setDescription(project.getDescription());
             projectDto.setTitle(project.getName());
+            projectDto.setImage(project.getImgPortada());
+            projectDto.setQuickDescription(project.getQuickDescription());
             projectDto.setTags("Timer, JavaScript, Frontend");
             projectDtos.add(projectDto);
         }

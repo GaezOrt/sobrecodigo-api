@@ -12,9 +12,30 @@ public class Project {
     @Column(name = "name")
     private String name;
 
-
     @Column(name = "description")
     private String description;
+
+    @Column(name = "quick_description")
+    private String quickDescription;
+
+    @Column(name = "img_portada")
+    private String imgPortada;
+
+    public String getImgPortada() {
+        return imgPortada;
+    }
+
+    public String getQuickDescription() {
+        return quickDescription;
+    }
+
+    public void setQuickDescription(String quickDescription) {
+        this.quickDescription = quickDescription;
+    }
+
+    public void setImgPortada(String imgPortada) {
+        this.imgPortada = imgPortada;
+    }
 
     public void setId(Long id) {
         this.id = id;

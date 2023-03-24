@@ -4,7 +4,25 @@ public class ProjectDto {
 
     private String title;
     private String description;
+    private String quickDescription;
     private String tags;
+    private String image;
+
+    public String getQuickDescription() {
+        return quickDescription;
+    }
+
+    public void setQuickDescription(String quickDescription) {
+        this.quickDescription = quickDescription;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getTitle() {
         return title;
