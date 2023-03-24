@@ -46,6 +46,15 @@ public class UserController {
 
         return userBusiness.userInfo();
     }
+
+
+    @RequestMapping(value = "/info-by-id/{userId}", method = RequestMethod.GET)
+    public @ResponseBody
+    UserInfoDto userInfoById(@PathVariable Long userId) {
+
+        return userBusiness.getByUserId(userId);
+    }
+    
     @RequestMapping(value = "/active", method = RequestMethod.GET)
     public @ResponseBody
     List<UserCreateSecondStepDto.UserCardDto> getActiveUsers() {

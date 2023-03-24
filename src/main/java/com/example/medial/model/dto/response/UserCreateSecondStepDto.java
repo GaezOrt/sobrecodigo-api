@@ -70,6 +70,16 @@ public class UserCreateSecondStepDto {
         private String LinkedInLink;
         private String GitHubLink;
         private String profileImageUrl;
+        private Long id;
+
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
 
         public String getProfileImageUrl() {
             return profileImageUrl;

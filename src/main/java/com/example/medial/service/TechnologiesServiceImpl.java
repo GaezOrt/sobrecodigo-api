@@ -49,6 +49,24 @@ public class TechnologiesServiceImpl {
         return userTechnologyDtos;
 
     }
+
+    public List<UserTechnologyDto> getTechnologiesForProfileByUser(Usuario usuario) {
+
+        List<UserTechnologies> userTecnologies = userTechnologyRepository.findByTechnologiesByUser(usuario.getId());
+        List<UserTechnologyDto > userTechnologyDtos = new ArrayList<>();
+        for(UserTechnologies userTechnologies :userTecnologies){
+            UserTechnologyDto userTechnologyDto = new UserTechnologyDto();
+
+            TechnologyDto technologyDto = new TechnologyDto();
+            technologyDto.setTechnology(userTechnologies.getTechnology().getTechnology());
+            userTechnologyDto.setTechnology(technologyDto);
+            userTechnologyDtos.add(userTechnologyDto);
+        }
+
+        return userTechnologyDtos;
+
+    }
+
     public boolean saveTechnologies(Usuario usuario, TechnologiesDto technologiesDto) throws IllegalAccessException {
 
         Field[] fields = technologiesDto.getClass().getDeclaredFields();

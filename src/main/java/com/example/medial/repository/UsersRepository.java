@@ -22,6 +22,10 @@ public interface UsersRepository extends CrudRepository<Usuario, Long> {
             nativeQuery = true)
    Usuario findByEmail(String email);
 
+    @Query(value = "select * from [dbo].[dim_user] WHERE id = ?1",
+            nativeQuery = true)
+    Usuario findByUniqueId(Long id);
+
     @Query(value = "select du.* from [dbo].[dim_user] du JOIN [dbo].[password] pw on du.id=pw.user_id where du.email =?1 and pw.[password] = ?2",
             nativeQuery = true)
     Usuario userExists(String email, String password);
