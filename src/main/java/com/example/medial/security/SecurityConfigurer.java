@@ -47,6 +47,8 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 antMatchers("/1.0/jobs/new-job").permitAll().
                 antMatchers("/1.0/projects/by-user").permitAll().
                 antMatchers("/1.0/users/info").permitAll().
+                antMatchers("/1.0/users/info-by-id/*").permitAll().
+
 
                 //para poder ver todos los endpoints navegando a "localhost:8080/swagger-ui/index.html"
                 antMatchers("/swagger-ui/**").permitAll().

@@ -17,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -115,7 +116,7 @@ public class UserServiceImpl {
         UserInfoDto userInfoDto = new UserInfoDto();
         userInfoDto.setUsername(usuario.getUsername());
         UsersLinks usersLinks = usersLinksRepository.findByUserId(usuario.getId());
-
+        userInfoDto.setId(usuario.getId());
         userInfoDto.setGithub(usersLinks.getGithub());
         userInfoDto.setLinkedIn(usersLinks.getLinkedIn());
         List<UserTechnologyDto> listaTecnologias= technologiesService.getTechnologiesByUser();
@@ -125,6 +126,24 @@ public class UserServiceImpl {
         return userInfoDto;
     }
 
+
+    public UserInfoDto getByUserId(Long userId) {
+        Usuario usuario= userRepository.findByUniqueId(userId);
+
+        UserInfoDto userInfoDto = new UserInfoDto();
+        userInfoDto.setUsername(usuario.getUsername());
+        UsersLinks usersLinks = usersLinksRepository.findByUserId(usuario.getId());
+
+        userInfoDto.setGithub(usersLinks.getGithub());
+        userInfoDto.setLinkedIn(usersLinks.getLinkedIn());
+        List<UserTechnologyDto> listaTecnologias= technologiesService.getTechnologiesForProfileByUser(usuario);
+        userInfoDto.setTecnologias(listaTecnologias);
+
+        userInfoDto.setEmail(usuario.getEmail());
+        return userInfoDto;
+    }
+
+
     public List<UserCreateSecondStepDto.UserCardDto> getActiveUsers() {
 
         List<Usuario> usuariosActivos = userRepository.findAll();
@@ -132,6 +151,7 @@ public class UserServiceImpl {
         for( Usuario usuario : usuariosActivos){
             UserCreateSecondStepDto.UserCardDto userCardDto = new UserCreateSecondStepDto.UserCardDto();
             userCardDto.setPosition("Trainee");
+            userCardDto.setId(usuario.getId());
             userCardDto.setContribucionesGit((long)20);
             userCardDto.setUsername(usuario.getUsername());
             userCardDto.setProfileImageUrl(usuario.getProfilePicture().getUrl());
@@ -141,6 +161,7 @@ public class UserServiceImpl {
 
             userCardDtos.add(userCardDto);
         }
+        Collections.reverse(userCardDtos);
         return userCardDtos;
     }
 

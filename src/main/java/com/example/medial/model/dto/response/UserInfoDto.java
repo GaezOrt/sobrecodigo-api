@@ -8,8 +8,17 @@ public class UserInfoDto {
     private String username;
     private String linkedIn;
     private String github;
+    private Long id;
 
     private List<UserTechnologyDto> tecnologias;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getLinkedIn() {
         return linkedIn;
