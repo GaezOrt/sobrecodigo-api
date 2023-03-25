@@ -111,6 +111,13 @@
             <version>1.6.15</version>
         </dependency>
 
+      <!-- PrettyTime dependecy, para mostrar los "X time ago" -->
+        <dependency>
+            <groupId>org.ocpsoft.prettytime</groupId>
+            <artifactId>prettytime</artifactId>
+            <version>3.2.7.Final</version>
+        </dependency>
+
 
 
     </dependencies>

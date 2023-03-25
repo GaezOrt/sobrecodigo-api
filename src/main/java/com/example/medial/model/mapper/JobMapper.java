@@ -7,12 +7,18 @@ import com.example.medial.model.entity.Currency;
 import com.example.medial.model.entity.Job;
 import com.example.medial.model.entity.JobPosition;
 import com.example.medial.model.entity.ModalityWork;
+import org.ocpsoft.prettytime.PrettyTime;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 @Component
 public class JobMapper {
 
-
+    private final PrettyTime prettyTime = new PrettyTime();
     public JobDto toDto(Job job) {
         JobDto jobDto = new JobDto();
         jobDto.setId(job.getId());
@@ -31,9 +37,14 @@ public class JobMapper {
         jobPositionDto.setPosition(job.getPosition().getPosition());
         jobPositionDto.setId(job.getPosition().getId());
         jobDto.setPosition(jobPositionDto);
+
+        //ChatGPT dijo que agregue esto
+        jobDto.setCreatedAt(prettyTime.format(Date.from(job.getCreatedAt().atZone(ZoneId.systemDefault()).toInstant())));
+
         return jobDto;
     }
 
+    //el createdAt se hace en el service.
     public Job toJob(JobDto jobDto, Currency currency, JobPosition position) {
         Job job = new Job();
         job.setDescription(jobDto.getDescription());
