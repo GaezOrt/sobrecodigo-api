@@ -1,5 +1,8 @@
 package com.example.medial.service;
 
+import com.example.medial.exceptions.UserNotFoundException;
+import com.example.medial.mapper.ProjectMapper;
+import com.example.medial.mapper.ProjectParticipationMapper;
 import com.example.medial.model.dto.response.ProjectDto;
 import com.example.medial.model.entity.Project;
 import com.example.medial.model.entity.ProjectParticipation;
@@ -12,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProjectServiceImpl {
@@ -25,33 +29,31 @@ public class ProjectServiceImpl {
     @Autowired
     private ProjectsParticipationRepository projectsParticipationRepository;
 
+    @Autowired
+    ProjectMapper projectMapper;
+
+    @Autowired
+    ProjectParticipationMapper projectParticipationMapper;
+
     public List<ProjectDto> getProjectsByUser() {
         Usuario usuario = authFacade.getUsuarioLoggeado();
 
-        List<ProjectParticipation> projects = projectsParticipationRepository.findByUserId(usuario.getId());
-        List<ProjectDto> projectDtos = new ArrayList<>();
-        for (ProjectParticipation project : projects) {
-            ProjectDto projectDto = new ProjectDto();
-            projectDto.setDescription(project.getProject().getDescription());
-            projectDto.setTitle(project.getProject().getName());
-            projectDto.setTags("Timer, JavaScript, Frontend");
-            projectDtos.add(projectDto);
-        }
+        List<ProjectParticipation> projects = projectsParticipationRepository.findByUserId(usuario.getId())
+                .orElseThrow(() -> new UserNotFoundException("Usuario con id: " + usuario.getId() + "no encontrado."));
+
+        List<ProjectDto> projectDtos = projects.stream()
+                .map(projectParticipation -> projectParticipationMapper.toDto(projectParticipation))
+                .collect(Collectors.toList());
+
         return projectDtos;
     }
 
     public List<ProjectDto> getMostRecentProjects() {
         List<Project> projects = projectsRepository.findAll();
-        List<ProjectDto> projectDtos = new ArrayList<>();
-        for (Project project : projects) {
-            ProjectDto projectDto = new ProjectDto();
-            projectDto.setDescription(project.getDescription());
-            projectDto.setTitle(project.getName());
-            projectDto.setImage(project.getImgPortada());
-            projectDto.setQuickDescription(project.getQuickDescription());
-            projectDto.setTags("Timer, JavaScript, Frontend");
-            projectDtos.add(projectDto);
-        }
+        List<ProjectDto> projectDtos = projects.stream()
+                .map(project -> projectMapper.toDto(project))
+                .collect(Collectors.toList());
+
         return projectDtos;
     }
 

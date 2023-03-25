@@ -1,6 +1,7 @@
 package com.example.medial.model.entity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "jobs")
@@ -42,6 +43,16 @@ public class Job {
     @Column(name = "tecnologies")
     private String tecnologies;
 
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
     public String getTecnologies() {
         return tecnologies;
     }
