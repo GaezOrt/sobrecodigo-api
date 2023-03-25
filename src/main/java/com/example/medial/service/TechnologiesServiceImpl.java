@@ -1,5 +1,6 @@
 package com.example.medial.service;
 
+import com.example.medial.mapper.UserTechnologiesMapper;
 import com.example.medial.model.dto.response.TechnologiesDto;
 import com.example.medial.model.dto.response.TechnologyDto;
 import com.example.medial.model.dto.response.UserTechnologyDto;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TechnologiesServiceImpl {
@@ -27,6 +29,9 @@ public class TechnologiesServiceImpl {
     @Autowired
     private UserTechnologyRepository userTechnologyRepository;
 
+    @Autowired
+    private UserTechnologiesMapper userTechnologiesMapper;
+
 
     public List<Technology> getTechnologies() {
 
@@ -35,36 +40,34 @@ public class TechnologiesServiceImpl {
     public List<UserTechnologyDto> getTechnologiesByUser() {
 
         Usuario usuario = authFacade.getUsuarioLoggeado();
+
+        //Si no hay, que devuelve?
         List<UserTechnologies> userTecnologies = userTechnologyRepository.findByTechnologiesByUser(usuario.getId());
-        List<UserTechnologyDto > userTechnologyDtos = new ArrayList<>();
-        for(UserTechnologies userTechnologies :userTecnologies){
-            UserTechnologyDto userTechnologyDto = new UserTechnologyDto();
 
-            TechnologyDto technologyDto = new TechnologyDto();
-            technologyDto.setTechnology(userTechnologies.getTechnology().getTechnology());
-            userTechnologyDto.setTechnology(technologyDto);
-            userTechnologyDtos.add(userTechnologyDto);
+        if(userTecnologies.size() == 0){
+            return new ArrayList<>();
+        } else {
+            List<UserTechnologyDto > userTechnologyDtos =
+                    userTecnologies.stream()
+                            .map(userTechnologies -> userTechnologiesMapper.toDto(userTechnologies))
+                            .collect(Collectors.toList());
+            return userTechnologyDtos;
         }
-
-        return userTechnologyDtos;
-
     }
 
     public List<UserTechnologyDto> getTechnologiesForProfileByUser(Usuario usuario) {
 
         List<UserTechnologies> userTecnologies = userTechnologyRepository.findByTechnologiesByUser(usuario.getId());
-        List<UserTechnologyDto > userTechnologyDtos = new ArrayList<>();
-        for(UserTechnologies userTechnologies :userTecnologies){
-            UserTechnologyDto userTechnologyDto = new UserTechnologyDto();
 
-            TechnologyDto technologyDto = new TechnologyDto();
-            technologyDto.setTechnology(userTechnologies.getTechnology().getTechnology());
-            userTechnologyDto.setTechnology(technologyDto);
-            userTechnologyDtos.add(userTechnologyDto);
+        if(userTecnologies.size() == 0){
+            return new ArrayList<>();
+        } else {
+            List<UserTechnologyDto > userTechnologyDtos =
+                    userTecnologies.stream()
+                            .map(userTechnologies -> userTechnologiesMapper.toDto(userTechnologies))
+                            .collect(Collectors.toList());
+            return userTechnologyDtos;
         }
-
-        return userTechnologyDtos;
-
     }
 
     public boolean saveTechnologies(Usuario usuario, TechnologiesDto technologiesDto) throws IllegalAccessException {

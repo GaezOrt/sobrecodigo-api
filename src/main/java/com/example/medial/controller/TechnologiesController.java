@@ -25,13 +25,13 @@ public class TechnologiesController
     private UserTechnologyRepository userTechnologyRepository;
 
     //Get technologies
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping
     public @ResponseBody
     List<Technology> getTechnologies() {
         return technologiesService.getTechnologies();
     }
 
-    @RequestMapping(value = "/by-user", method = RequestMethod.GET)
+    @GetMapping("/by-user")
     public @ResponseBody
     List<UserTechnologyDto> getTechByUser() {
         return technologiesService.getTechnologiesByUser();

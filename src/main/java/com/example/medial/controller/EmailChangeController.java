@@ -17,13 +17,13 @@ public class EmailChangeController {
     @Autowired
     private EmailChangeServiceImpl emailChangeBusiness;
 
-    @RequestMapping(value = "/request", method = RequestMethod.POST)
+    @PostMapping("/request")
     public boolean changePassword(@RequestBody ChangePasswordDto changePasswordDto) throws Exception {
 
         return emailChangeBusiness.recoverPassword(changePasswordDto);
     }
 
-    @RequestMapping(value = "/send-code", method = RequestMethod.POST)
+    @PostMapping("/send-code")
     public boolean passwordChangeCode(@RequestBody ChangePasswordCodeDto changePasswordDto) throws Exception {
 
         return emailChangeBusiness.checkCode(changePasswordDto);
