@@ -2,10 +2,8 @@ package com.example.medial.service;
 
 import com.example.medial.exceptions.CurrencyNotFoundException;
 import com.example.medial.exceptions.JobNotFoundException;
-import com.example.medial.mapper.JobMapper;
-import com.example.medial.model.dto.response.CurrencyDto;
+import com.example.medial.model.mapper.JobMapper;
 import com.example.medial.model.dto.response.JobDto;
-import com.example.medial.model.dto.response.JobPositionDto;
 import com.example.medial.model.entity.Currency;
 import com.example.medial.model.entity.Job;
 import com.example.medial.model.entity.JobPosition;
@@ -23,7 +21,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 

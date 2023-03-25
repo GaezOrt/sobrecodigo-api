@@ -1,8 +1,7 @@
 package com.example.medial.service;
 
-import com.example.medial.mapper.UserTechnologiesMapper;
+import com.example.medial.model.mapper.UserTechnologiesMapper;
 import com.example.medial.model.dto.response.TechnologiesDto;
-import com.example.medial.model.dto.response.TechnologyDto;
 import com.example.medial.model.dto.response.UserTechnologyDto;
 import com.example.medial.model.entity.Technology;
 import com.example.medial.model.entity.UserTechnologies;
