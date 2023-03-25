@@ -39,6 +39,28 @@ public class Job {
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
+    @Column(name = "enterprise")
+    private String enterprise;
+
+    @Column(name = "tecnologies")
+    private String tecnologies;
+
+    public String getTecnologies() {
+        return tecnologies;
+    }
+
+    public void setTecnologies(String tecnologies) {
+        this.tecnologies = tecnologies;
+    }
+
+    public String getEnterprise() {
+        return enterprise;
+    }
+
+    public void setEnterprise(String enterprise) {
+        this.enterprise = enterprise;
+    }
+
     public String getTitle() {
         return title;
     }

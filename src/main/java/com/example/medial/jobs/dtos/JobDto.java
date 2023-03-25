@@ -7,6 +7,24 @@ public class JobDto {
     private JobPositionDto position;
     private CurrencyDto currency;
     private Double salary;
+    private String enterprise;
+    private String tecnologies;
+
+    public String getTecnologies() {
+        return tecnologies;
+    }
+
+    public void setTecnologies(String tecnologies) {
+        this.tecnologies = tecnologies;
+    }
+
+    public String getEnterprise() {
+        return enterprise;
+    }
+
+    public void setEnterprise(String enterprise) {
+        this.enterprise = enterprise;
+    }
 
     public ModalityJobDto getModalityJobDto() {
         return modalityJobDto;

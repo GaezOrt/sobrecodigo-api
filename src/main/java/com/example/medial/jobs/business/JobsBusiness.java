@@ -1,5 +1,6 @@
 package com.example.medial.jobs.business;
 
+
 import com.example.medial.jobs.dtos.JobDto;
 import com.example.medial.mapper.JobsMapper;
 import com.example.medial.model.entity.Job;
@@ -54,6 +55,7 @@ public class JobsBusiness {
         } else {
             //si no hay ningun job dado por esa pagina, devuelve un array vacio
             return new ArrayList<>();
+
         }
 
     }
