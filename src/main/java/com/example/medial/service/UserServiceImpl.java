@@ -112,7 +112,6 @@ public class UserServiceImpl {
 
     public UserInfoDto userInfo() {
         Usuario usuario= authFacade.getUsuarioLoggeado();
-
         UserInfoDto userInfoDto = new UserInfoDto();
         userInfoDto.setUsername(usuario.getUsername());
         UsersLinks usersLinks = usersLinksRepository.findByUserId(usuario.getId());
