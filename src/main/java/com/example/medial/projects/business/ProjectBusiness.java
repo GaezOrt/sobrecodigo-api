@@ -1,5 +1,7 @@
 package com.example.medial.projects.business;
 
+import com.example.medial.mapper.ProjectMapper;
+import com.example.medial.mapper.ProjectParticipationMapper;
 import com.example.medial.projects.dtos.ProjectDto;
 import com.example.medial.model.entity.Project;
 import com.example.medial.model.entity.ProjectParticipation;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProjectBusiness {
@@ -23,34 +26,38 @@ public class ProjectBusiness {
     private AuthFacade authFacade;
 
     @Autowired
-    private ProjectsParticipationRepository projectsParticipationRepository;
+    ProjectParticipationMapper projectParticipationMapper;
+
+    @Autowired
+    ProjectsParticipationRepository projectsParticipationRepository;
+
+    @Autowired
+    ProjectMapper projectMapper;
 
     public List<ProjectDto> getProjectsByUser() {
         Usuario usuario = authFacade.getUsuarioLoggeado();
 
-        List<ProjectParticipation> projects = projectsParticipationRepository.findByUserId(usuario.getId());
+        List<ProjectParticipation> projectsParticipation = projectsParticipationRepository.findByUserId(usuario.getId());
         List<ProjectDto> projectDtos = new ArrayList<>();
-        for (ProjectParticipation project : projects) {
-            ProjectDto projectDto = new ProjectDto();
-            projectDto.setDescription(project.getProject().getDescription());
-            projectDto.setTitle(project.getProject().getName());
-            projectDto.setTags("Timer, JavaScript, Frontend");
-            projectDtos.add(projectDto);
+        if(!projectsParticipation.isEmpty()) {
+            projectDtos = projectsParticipation.stream()
+                    .map(projectParticipation -> projectParticipationMapper.mapToDto(projectParticipation))
+                    .collect(Collectors.toList());
         }
+
         return projectDtos;
     }
 
     public List<ProjectDto> getMostRecentProjects() {
         List<Project> projects = projectsRepository.findAll();
         List<ProjectDto> projectDtos = new ArrayList<>();
-        for (Project project : projects) {
-            ProjectDto projectDto = new ProjectDto();
-            projectDto.setDescription(project.getDescription());
-            projectDto.setTitle(project.getName());
-            projectDto.setTags("Timer, JavaScript, Frontend");
-            projectDtos.add(projectDto);
+
+        if(!projects.isEmpty()) {
+            projectDtos = projects.stream()
+                   .map(project -> projectMapper.mapToDto(project))
+                   .collect(Collectors.toList());
         }
+
         return projectDtos;
     }
-
 }

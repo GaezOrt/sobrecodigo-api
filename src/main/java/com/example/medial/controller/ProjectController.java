@@ -18,19 +18,16 @@ public class ProjectController {
     @Autowired
     private ProjectBusiness projectBusiness;
 
-    //Get recent projects
-    @RequestMapping(value = "/recent-projects", method = RequestMethod.GET)
+    //No creo que haga falta meter paginacion aca
+    @GetMapping("/recent")
     public @ResponseBody
     List<ProjectDto> getProjects() {
-
         return projectBusiness.getMostRecentProjects();
     }
 
-    //Get recent projects
-    @RequestMapping(value = "/by-user", method = RequestMethod.GET)
+    @GetMapping("/by-user")
     public @ResponseBody
     List<ProjectDto> getProjectsByUser() {
-
         return projectBusiness.getProjectsByUser();
     }
 

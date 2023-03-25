@@ -20,21 +20,25 @@ public class JobsController
     private JobsBusiness jobsBusiness;
 
     //Get recent jobs
-    @RequestMapping(value = "/recent-jobs", method = RequestMethod.GET)
+    //la url se veria como: server:port/api/1.0/jobs/recent?page=0&limit=4&sortBy=date&direction=ASC
+    @GetMapping("/jobs/recent")
     public @ResponseBody
-    List<JobDto> getRecentJobs() {
+    List<JobDto> getRecentJobs(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "50") int limit,
+            @RequestParam(defaultValue = "createdAt") String sortBy,
+            @RequestParam(defaultValue = "DESC") String direction
+    ) {
 
-        return jobsBusiness.getRecentJobs();
+        return jobsBusiness.getRecentJobs(page, limit, sortBy, direction);
     }
 
     //Get recent jobs
-    @RequestMapping(value = "/new-job", method = RequestMethod.POST)
+    @PostMapping("/jobs/new")
     public @ResponseBody
     Boolean getJobs(@RequestBody JobDto jobDto) {
 
         return jobsBusiness.insertJob(jobDto);
     }
-
-
 
 }

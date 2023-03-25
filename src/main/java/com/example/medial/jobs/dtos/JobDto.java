@@ -8,6 +8,17 @@ public class JobDto {
     private CurrencyDto currency;
     private Double salary;
 
+    public ModalityJobDto getModalityJobDto() {
+        return modalityJobDto;
+    }
+
+    public void setModalityJobDto(ModalityJobDto modalityJobDto) {
+        this.modalityJobDto = modalityJobDto;
+    }
+
+    private ModalityJobDto modalityJobDto;
+
+
     public Double getSalary() {
         return salary;
     }
