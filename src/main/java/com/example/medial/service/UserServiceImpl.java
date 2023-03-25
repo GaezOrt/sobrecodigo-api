@@ -120,8 +120,8 @@ public class UserServiceImpl {
         userInfoDto.setLinkedIn(usersLinks.getLinkedIn());
         List<UserTechnologyDto> listaTecnologias= technologiesService.getTechnologiesByUser();
         userInfoDto.setTecnologias(listaTecnologias);
-
         userInfoDto.setEmail(usuario.getEmail());
+
         return userInfoDto;
     }
 
