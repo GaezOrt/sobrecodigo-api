@@ -1,8 +1,8 @@
 package com.example.medial.service;
 
 import com.example.medial.exceptions.UserNotFoundException;
-import com.example.medial.mapper.ProjectMapper;
-import com.example.medial.mapper.ProjectParticipationMapper;
+import com.example.medial.model.mapper.ProjectMapper;
+import com.example.medial.model.mapper.ProjectParticipationMapper;
 import com.example.medial.model.dto.response.ProjectDto;
 import com.example.medial.model.entity.Project;
 import com.example.medial.model.entity.ProjectParticipation;
@@ -13,7 +13,6 @@ import com.example.medial.model.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

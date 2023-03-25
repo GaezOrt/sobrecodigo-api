@@ -1,4 +1,4 @@
-package com.example.medial.mapper;
+package com.example.medial.model.mapper;
 
 import com.example.medial.model.dto.response.ProjectDto;
 import com.example.medial.model.entity.Project;

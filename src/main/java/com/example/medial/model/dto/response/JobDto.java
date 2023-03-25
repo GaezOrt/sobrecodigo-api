@@ -46,6 +46,17 @@ public class JobDto {
         this.enterprise = enterprise;
     }
 
+    public ModalityWorkDto getModalityJobDto() {
+        return modalityJobDto;
+    }
+
+    public void setModalityJobDto(ModalityWorkDto modalityJobDto) {
+        this.modalityJobDto = modalityJobDto;
+    }
+
+    private ModalityWorkDto modalityJobDto;
+
+
     public Double getSalary() {
         return salary;
     }
