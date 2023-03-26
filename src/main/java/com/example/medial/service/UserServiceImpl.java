@@ -185,6 +185,7 @@ public class UserServiceImpl {
         for( Usuario usuario : usuariosActivos){
             UserCreateSecondStepDto.UserCardDto userCardDto = new UserCreateSecondStepDto.UserCardDto();
             userCardDto.setPosition("Trainee");
+            userCardDto.setId(usuario.getId());
             userCardDto.setContribucionesGit((long)20);
             userCardDto.setUsername(usuario.getUsername());
             userCardDto.setProfileImageUrl(usuario.getProfilePicture().getUrl());
