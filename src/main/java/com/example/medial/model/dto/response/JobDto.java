@@ -9,6 +9,26 @@ public class JobDto {
     private Double salary;
     private String enterprise;
     private String tecnologies;
+    private ModalityWorkDto modalityWorkDto;
+
+    //TODO: usar prettier library para transformar fecha en algo legible
+    private String createdAt;
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public ModalityWorkDto getModalityWorkDto() {
+        return modalityWorkDto;
+    }
+
+    public void setModalityWorkDto(ModalityWorkDto modalityWorkDto) {
+        this.modalityWorkDto = modalityWorkDto;
+    }
 
     public String getTecnologies() {
         return tecnologies;
@@ -25,6 +45,17 @@ public class JobDto {
     public void setEnterprise(String enterprise) {
         this.enterprise = enterprise;
     }
+
+    public ModalityWorkDto getModalityJobDto() {
+        return modalityJobDto;
+    }
+
+    public void setModalityJobDto(ModalityWorkDto modalityJobDto) {
+        this.modalityJobDto = modalityJobDto;
+    }
+
+    private ModalityWorkDto modalityJobDto;
+
 
     public Double getSalary() {
         return salary;
