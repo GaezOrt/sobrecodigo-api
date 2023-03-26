@@ -4,12 +4,9 @@ import com.example.medial.model.dto.request.UserCreateFirstStepDto;
 import com.example.medial.model.dto.request.UserLogInDto;
 import com.example.medial.model.dto.response.*;
 import com.example.medial.model.entity.*;
-import com.example.medial.repository.ProfilePictureRepository;
-import com.example.medial.repository.UsersLinksRepository;
+import com.example.medial.repository.*;
 import com.example.medial.security.AuthFacade;
 import com.example.medial.security.JWTUtil;
-import com.example.medial.repository.PasswordRepository;
-import com.example.medial.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -44,6 +41,10 @@ public class UserServiceImpl {
 
     @Autowired
     private ProfilePictureRepository profilePictureRepository;
+
+    @Autowired
+    private TechnologiesRepository technologiesRepository;
+
 
     @Autowired
     private TechnologiesServiceImpl technologiesService;
@@ -135,6 +136,7 @@ public class UserServiceImpl {
 
         userInfoDto.setGithub(usersLinks.getGithub());
         userInfoDto.setLinkedIn(usersLinks.getLinkedIn());
+        userInfoDto.setImage(usuario.getProfilePicture().getUrl());
         List<UserTechnologyDto> listaTecnologias= technologiesService.getTechnologiesForProfileByUser(usuario);
         userInfoDto.setTecnologias(listaTecnologias);
 
@@ -155,14 +157,19 @@ public class UserServiceImpl {
             userCardDto.setUsername(usuario.getUsername());
             userCardDto.setProfileImageUrl(usuario.getProfilePicture().getUrl());
             userCardDto.setGitHubLink("https://www.linkedin.com/company/sobrecodigo/");
-            userCardDto.setProyectosCompletados((long)20);
-            userCardDto.setDesafiosCompletados((long)243);
+            userCardDto.setProyectosCompletados((long)0);
+            userCardDto.setDesafiosCompletados((long)0);
 
+            List<UserTechnologyDto> list = technologiesService.getTechnologiesByUser(usuario.getId());
+            userCardDto.setTechnologyDtos(list);
             userCardDtos.add(userCardDto);
         }
         Collections.reverse(userCardDtos);
         return userCardDtos;
     }
+
+
+
 
     public ProfilePicture getImages() {
         List<ProfilePicture> imgsList= (List<ProfilePicture>) profilePictureRepository.findAll();

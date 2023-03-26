@@ -39,7 +39,7 @@ public class JobMapper {
         jobDto.setPosition(jobPositionDto);
 
         //ChatGPT dijo que agregue esto
-        jobDto.setCreatedAt(prettyTime.format(Date.from(job.getCreatedAt().atZone(ZoneId.systemDefault()).toInstant())));
+       // jobDto.setCreatedAt(prettyTime.format(Date.from(job.getCreatedAt().atZone(ZoneId.systemDefault()).toInstant())));
 
         return jobDto;
     }

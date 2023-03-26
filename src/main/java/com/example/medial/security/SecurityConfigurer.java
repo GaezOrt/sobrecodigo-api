@@ -30,7 +30,10 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .antMatchers("/1.0/users/active").permitAll()
                 .antMatchers("/1.0/users/most-active").permitAll()
                 .antMatchers("/1.0/technologies/").permitAll()
+                .antMatchers("/1.0/technologies/icons/by-technology/*").permitAll()
                 .antMatchers("/1.0/technologies/by-user").permitAll()
+                .antMatchers("/1.0/technologies/by-user/*").permitAll()
+                .antMatchers("/1.0/icons/by-user/*").permitAll()
                 .antMatchers("/1.0/users/register-first-step").permitAll()
                 .antMatchers("/1.0/documents/").permitAll()
                 .antMatchers("/1.0/paises/").permitAll()
@@ -43,9 +46,10 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 antMatchers("/1.0/requests/create-request").permitAll().
                 antMatchers("/1.0/projects/recent").permitAll().
                 antMatchers("/1.0/projects/by-id/*").permitAll().
-                antMatchers("/1.0/jobs/recent-jobs").permitAll().
-                antMatchers("/1.0/jobs/new-jobs").permitAll().
-                antMatchers("/1.0/jobs/new-job").permitAll().
+
+                antMatchers("/1.0/jobs/recent").permitAll().
+                antMatchers("/1.0/jobs/new").permitAll().
+                antMatchers("/1.0/jobs/new").permitAll().
                 antMatchers("/1.0/projects/by-user").permitAll().
                 antMatchers("/1.0/users/info").permitAll().
                 antMatchers("/1.0/users/info-by-id/*").permitAll().

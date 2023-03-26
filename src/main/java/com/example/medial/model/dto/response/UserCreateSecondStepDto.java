@@ -2,6 +2,7 @@ package com.example.medial.model.dto.response;
 
 
 import java.util.Date;
+import java.util.List;
 
 public class UserCreateSecondStepDto {
 
@@ -71,7 +72,15 @@ public class UserCreateSecondStepDto {
         private String GitHubLink;
         private String profileImageUrl;
         private Long id;
+        private List<UserTechnologyDto> technologyDtos;
 
+        public List<UserTechnologyDto> getTechnologyDtos() {
+            return technologyDtos;
+        }
+
+        public void setTechnologyDtos(List<UserTechnologyDto> technologyDtos) {
+            this.technologyDtos = technologyDtos;
+        }
 
         public Long getId() {
             return id;

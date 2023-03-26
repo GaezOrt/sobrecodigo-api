@@ -9,6 +9,15 @@ public class UserInfoDto {
     private String linkedIn;
     private String github;
     private Long id;
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     private List<UserTechnologyDto> tecnologias;
 

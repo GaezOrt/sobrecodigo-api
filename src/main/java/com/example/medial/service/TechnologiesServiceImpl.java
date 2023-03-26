@@ -1,5 +1,7 @@
 package com.example.medial.service;
 
+import com.example.medial.model.dto.response.TechnologyColorsIconDto;
+import com.example.medial.model.entity.TechnologyColorsIcon;
 import com.example.medial.model.mapper.UserTechnologiesMapper;
 import com.example.medial.model.dto.response.TechnologiesDto;
 import com.example.medial.model.dto.response.UserTechnologyDto;
@@ -7,7 +9,9 @@ import com.example.medial.model.entity.Technology;
 import com.example.medial.model.entity.UserTechnologies;
 import com.example.medial.model.entity.Usuario;
 import com.example.medial.repository.TechnologiesRepository;
+import com.example.medial.repository.TechnologyColorsIconRepository;
 import com.example.medial.repository.UserTechnologyRepository;
+import com.example.medial.repository.UsersRepository;
 import com.example.medial.security.AuthFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +35,12 @@ public class TechnologiesServiceImpl {
     @Autowired
     private UserTechnologiesMapper userTechnologiesMapper;
 
+    @Autowired
+    private TechnologyColorsIconRepository technologyColorsIconRepository;
+
+    @Autowired
+    private UsersRepository usersRepository;
+
 
     public List<Technology> getTechnologies() {
 
@@ -52,6 +62,34 @@ public class TechnologiesServiceImpl {
                             .collect(Collectors.toList());
             return userTechnologyDtos;
         }
+    }
+
+    public List<UserTechnologyDto> getTechnologiesByUser(Long id) {
+
+        Usuario usuario = usersRepository.findByUniqueId(id);
+
+        //Si no hay, que devuelve?
+        List<UserTechnologies> userTecnologies = userTechnologyRepository.findByTechnologiesByUser(usuario.getId());
+
+        if(userTecnologies.size() == 0){
+            return new ArrayList<>();
+        } else {
+            List<UserTechnologyDto > userTechnologyDtos =
+                    userTecnologies.stream()
+                            .map(userTechnologies -> userTechnologiesMapper.toDto(userTechnologies))
+                            .collect(Collectors.toList());
+            return userTechnologyDtos;
+        }
+    }
+
+
+    public TechnologyColorsIconDto getTechnologyIcon(Long technologyId) {
+
+        //Si no hay, que devuelve?
+        TechnologyColorsIcon technologyColorsIcon = technologyColorsIconRepository.findIconByTechnology(technologyId);
+        TechnologyColorsIconDto technologyColorsIconDto = new TechnologyColorsIconDto();
+        technologyColorsIconDto.setIcon(technologyColorsIcon.getIcon());
+        return technologyColorsIconDto;
     }
 
     public List<UserTechnologyDto> getTechnologiesForProfileByUser(Usuario usuario) {

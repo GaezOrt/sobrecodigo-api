@@ -1,5 +1,6 @@
 package com.example.medial.controller;
 
+import com.example.medial.model.dto.response.TechnologyColorsIconDto;
 import com.example.medial.model.dto.response.UserTechnologyDto;
 import com.example.medial.model.entity.Technology;
 import com.example.medial.model.enums.Api;
@@ -36,4 +37,18 @@ public class TechnologiesController
     List<UserTechnologyDto> getTechByUser() {
         return technologiesService.getTechnologiesByUser();
     }
+
+    @GetMapping("/by-user/{userId}")
+    public @ResponseBody
+    List<UserTechnologyDto> getTechByUser(@PathVariable Long userId) {
+        return technologiesService.getTechnologiesByUser(userId);
+    }
+
+
+    @GetMapping("/icons/by-technology/{technologyId}")
+    public @ResponseBody
+    TechnologyColorsIconDto getIconByTechnology(@PathVariable Long technologyId) {
+        return technologiesService.getTechnologyIcon(technologyId);
+    }
+
 }

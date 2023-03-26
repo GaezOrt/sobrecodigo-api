@@ -10,6 +10,7 @@ import com.example.medial.model.entity.ProjectParticipation;
 import com.example.medial.repository.ProjectTechnologiesRepository;
 import com.example.medial.repository.ProjectsParticipationRepository;
 import com.example.medial.repository.ProjectsRepository;
+import com.example.medial.repository.TechnologyColorsIconRepository;
 import com.example.medial.security.AuthFacade;
 import com.example.medial.model.entity.Usuario;
 import com.nimbusds.openid.connect.sdk.claims.UserInfo;
@@ -40,6 +41,9 @@ public class ProjectServiceImpl {
 
     @Autowired
     ProjectTechnologiesRepository projectTechnologiesRepository;
+
+    @Autowired
+    TechnologyColorsIconRepository technologyColorsIconRepository;
 
     public List<ProjectDto> getProjectsByUser() {
         Usuario usuario = authFacade.getUsuarioLoggeado();
@@ -98,6 +102,23 @@ public class ProjectServiceImpl {
         List<ProjectDto> projectDtos = projects.stream()
                 .map(project -> projectMapper.toDto(project))
                 .collect(Collectors.toList());
+        List<TechnologyDto> projectTechnologiesDto = new ArrayList<>();
+        for(ProjectDto projectDto : projectDtos){
+            List<ProjectTechnologies> projectTechnologies = projectTechnologiesRepository.findByProject(projectDto.getId());
+
+            ProjectTechnologiesDto projectTechnologiesDto1 = new ProjectTechnologiesDto();
+            projectTechnologiesDto1.setProjectDto(projectDto);
+
+            for(ProjectTechnologies projectTechnologies1 : projectTechnologies){
+                TechnologyDto technologyDto = new TechnologyDto();
+
+                technologyDto.setIcon(technologyColorsIconRepository.findIconByTechnology(projectTechnologies1.getTechnology().getId()).getIcon());
+                technologyDto.setTechnology(projectTechnologies1.getTechnology().getTechnology());
+                projectTechnologiesDto.add(technologyDto);
+            }
+        projectDto.setProjectTechnologiesDtos(projectTechnologiesDto);
+
+        }
 
         return projectDtos;
     }
