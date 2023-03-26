@@ -36,7 +36,7 @@ public interface UsersRepository extends CrudRepository<Usuario, Long> {
             nativeQuery = true)
     void insertarUsuarioSecondStep(String firstName, String lastName, Date birthDate, Long country, String document, Long id);
 
-    @Query(value = "select TOP 5 * from dbo.dim_user",
+    @Query(value = "select TOP 5 * from dbo.dim_user order by id desc",
             nativeQuery = true)
     List<Usuario> findMostActive();
 

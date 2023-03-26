@@ -1,7 +1,5 @@
 package com.example.medial.service;
 
-import com.example.medial.model.dto.response.TechnologyColorsIconDto;
-import com.example.medial.model.entity.TechnologyColorsIcon;
 import com.example.medial.model.mapper.UserTechnologiesMapper;
 import com.example.medial.model.dto.response.TechnologiesDto;
 import com.example.medial.model.dto.response.UserTechnologyDto;
@@ -9,7 +7,6 @@ import com.example.medial.model.entity.Technology;
 import com.example.medial.model.entity.UserTechnologies;
 import com.example.medial.model.entity.Usuario;
 import com.example.medial.repository.TechnologiesRepository;
-import com.example.medial.repository.TechnologyColorsIconRepository;
 import com.example.medial.repository.UserTechnologyRepository;
 import com.example.medial.repository.UsersRepository;
 import com.example.medial.security.AuthFacade;
@@ -34,9 +31,6 @@ public class TechnologiesServiceImpl {
 
     @Autowired
     private UserTechnologiesMapper userTechnologiesMapper;
-
-    @Autowired
-    private TechnologyColorsIconRepository technologyColorsIconRepository;
 
     @Autowired
     private UsersRepository usersRepository;
@@ -83,13 +77,13 @@ public class TechnologiesServiceImpl {
     }
 
 
-    public TechnologyColorsIconDto getTechnologyIcon(Long technologyId) {
+
+    public String getTechnologyIcon(Long technologyId) {
 
         //Si no hay, que devuelve?
-        TechnologyColorsIcon technologyColorsIcon = technologyColorsIconRepository.findIconByTechnology(technologyId);
-        TechnologyColorsIconDto technologyColorsIconDto = new TechnologyColorsIconDto();
-        technologyColorsIconDto.setIcon(technologyColorsIcon.getIcon());
-        return technologyColorsIconDto;
+        Technology technologyColorsIcon = technologiesRepository.findByRealId(technologyId);
+
+        return technologyColorsIcon.getIcon();
     }
 
     public List<UserTechnologyDto> getTechnologiesForProfileByUser(Usuario usuario) {

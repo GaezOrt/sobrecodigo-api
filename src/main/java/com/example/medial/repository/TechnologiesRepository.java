@@ -20,4 +20,8 @@ public interface TechnologiesRepository extends CrudRepository<Technology, Long>
     Technology findByTechnologyName(String technology);
 
 
+    @Query(value = "select * from dbo.technologies where dbo.technologies.id = ?1",
+            nativeQuery = true)
+    Technology findByRealId(Long id);
+
 }

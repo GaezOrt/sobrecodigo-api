@@ -192,6 +192,8 @@ public class UserServiceImpl {
             userCardDto.setProyectosCompletados((long)20);
             userCardDto.setDesafiosCompletados((long)243);
 
+            List<UserTechnologyDto> technologies = technologiesService.getTechnologiesByUser(usuario.getId());
+            userCardDto.setTechnologyDtos(technologies);
             userCardDtos.add(userCardDto);
         }
         return userCardDtos;

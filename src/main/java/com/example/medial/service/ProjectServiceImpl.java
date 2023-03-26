@@ -10,10 +10,8 @@ import com.example.medial.model.entity.ProjectParticipation;
 import com.example.medial.repository.ProjectTechnologiesRepository;
 import com.example.medial.repository.ProjectsParticipationRepository;
 import com.example.medial.repository.ProjectsRepository;
-import com.example.medial.repository.TechnologyColorsIconRepository;
 import com.example.medial.security.AuthFacade;
 import com.example.medial.model.entity.Usuario;
-import com.nimbusds.openid.connect.sdk.claims.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,9 +39,6 @@ public class ProjectServiceImpl {
 
     @Autowired
     ProjectTechnologiesRepository projectTechnologiesRepository;
-
-    @Autowired
-    TechnologyColorsIconRepository technologyColorsIconRepository;
 
     public List<ProjectDto> getProjectsByUser() {
         Usuario usuario = authFacade.getUsuarioLoggeado();
@@ -112,7 +107,7 @@ public class ProjectServiceImpl {
             for(ProjectTechnologies projectTechnologies1 : projectTechnologies){
                 TechnologyDto technologyDto = new TechnologyDto();
 
-                technologyDto.setIcon(technologyColorsIconRepository.findIconByTechnology(projectTechnologies1.getTechnology().getId()).getIcon());
+                technologyDto.setIcon(projectTechnologies1.getTechnology().getIcon());
                 technologyDto.setTechnology(projectTechnologies1.getTechnology().getTechnology());
                 projectTechnologiesDto.add(technologyDto);
             }
