@@ -14,4 +14,8 @@ public interface ProjectsRepository extends CrudRepository<Project, Long> {
             nativeQuery = true)
     List<Project> findAll();
 
+    @Query(value = "select * from dbo.projects where id = ?1",
+            nativeQuery = true)
+    Project findBySpecificId(Long id);
+
 }

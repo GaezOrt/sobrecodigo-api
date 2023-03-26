@@ -21,6 +21,17 @@ public class Project {
     @Column(name = "img_portada")
     private String imgPortada;
 
+    @Column(name = "github")
+    private String github;
+
+    public String getGithub() {
+        return github;
+    }
+
+    public void setGithub(String github) {
+        this.github = github;
+    }
+
     public String getImgPortada() {
         return imgPortada;
     }

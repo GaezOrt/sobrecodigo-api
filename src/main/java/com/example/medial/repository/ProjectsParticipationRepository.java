@@ -17,4 +17,7 @@ public interface ProjectsParticipationRepository extends JpaRepository<ProjectPa
 
     Optional<List<ProjectParticipation>> findByUserId(Long userId);
 
+    @Query(value = "select * from dbo.projects_participation WHERE project_id = ?1", nativeQuery = true)
+    List<ProjectParticipation> findParticipantsByProjectId(Long projectId);
+
 }

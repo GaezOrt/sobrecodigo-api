@@ -41,7 +41,8 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .antMatchers("/1.0/users/writeBlobFile").permitAll().
                 antMatchers("/1.0/versionado/check").permitAll().
                 antMatchers("/1.0/requests/create-request").permitAll().
-                antMatchers("/1.0/projects/recent-projects").permitAll().
+                antMatchers("/1.0/projects/recent").permitAll().
+                antMatchers("/1.0/projects/by-id/*").permitAll().
                 antMatchers("/1.0/jobs/recent-jobs").permitAll().
                 antMatchers("/1.0/jobs/new-jobs").permitAll().
                 antMatchers("/1.0/jobs/new-job").permitAll().

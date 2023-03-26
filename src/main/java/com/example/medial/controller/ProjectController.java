@@ -32,4 +32,12 @@ public class ProjectController {
         return projectBusiness.getProjectsByUser();
     }
 
+
+    @GetMapping("/by-id/{id}")
+    public @ResponseBody
+    ProjectDto getProjectById(@PathVariable Long id) {
+        return projectBusiness.getProjectById(id);
+    }
+
+
 }

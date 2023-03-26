@@ -13,6 +13,9 @@ public class ProjectMapper {
         projectDto.setImage(project.getImgPortada());
         projectDto.setQuickDescription(project.getQuickDescription());
         projectDto.setTags("Timer, JavaScript, Frontend");
+        projectDto.setId(project.getId());
+        projectDto.setGithub(project.getGithub());
+
         return projectDto;
     }
 }
